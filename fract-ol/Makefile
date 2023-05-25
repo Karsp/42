@@ -7,9 +7,9 @@ OBJ = $(SRC:.c=.o)
 
 CC	= gcc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra 
 
-MLX = -Lmlx -lmlx -framework OpenGL -framework AppKit 
+MLX = -lmlx -framework OpenGL -framework AppKit -L ./mlx 
 
 RM = rm -f
 
