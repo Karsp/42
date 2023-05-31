@@ -6,14 +6,18 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 17:50:25 by daviles-          #+#    #+#             */
-/*   Updated: 2023/05/25 21:37:51 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/05/31 22:21:57 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
 
-void	ft_close(m_data *data)
+void	ft_close(t_data *data)
 {
+	if (data->img.mlx_img)
+	{
+		mlx_destroy_image(data->mlx_ptr, data->img.mlx_img);
+	}
 	if (data->win_ptr)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	printf("\nExit program.");
@@ -22,101 +26,79 @@ void	ft_close(m_data *data)
 
 int	handle_no_event(void *data)
 {
-	/* This function needs to exist, but it is useless for the moment */
+	(void)data;
 	return (0);
 }
 
-int	handle_input(int keysym, m_data *data)
+
+int	handle_keys(int keysym, t_data *data)
 {
-	printf("Key %d\n", keysym);
 	if (keysym == 53)
 		ft_close(data);
+	printf("Keypress: %d\n", keysym);
 	return (0);
 }
 
-void	ft_mandelbrot(int imgW, int imgH)
+int	handle_mouse(int keysym, void *data)
 {
-
+	printf("Keyrelease: %d\n", keysym);
+	(void)data;
+	return (0);
 }
 
-void	ft_imgdata(t_data *data, int x, int y, int color)
+void	img_pix_put(t_img *img, int x, int y, int color)
 {
-	char	*dst;
+	char    *pixel;
 
-	dst = data->addr + (y * data->ln_len + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
+    pixel = img->addr + (y * img->ln_len + x * (img->bpp / 8));
+	*(int *)pixel = color;
 }
 
-/*void	print_pxl(int x, int y)
+int	generate_fractal(t_data data)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-	int		i;
-	int		imgH;
-	int		imgW;
+	double MinRe = -2.0;
+	double MaxRe = 1.0;
+	double MinIm = -1.2;
+	double MaxIm = MinIm+(MaxRe-MinRe)*HEIGHT/WIDTH;
+	double Re_factor = (MaxRe-MinRe)/(WIDTH-1);
+	double Im_factor = (MaxIm-MinIm)/(HEIGHT-1);
+	unsigned MaxIterations = 30;
+	unsigned y;
+	unsigned x;
+	unsigned n;
 
-	imgW = 1080;
-	imgH = 1920;
-	i = 0;
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, imgW, imgH, "Let's Fract-ol");
-	img.img = mlx_new_image(mlx, imgW, imgH);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.ln_len, &img.endian);
-	while (i <= 1000)
+	y = 0;
+	while (y++ < HEIGHT)
 	{
-		ft_imgdata(&img, 5, i, 0x00FF0000);
-		if (i > 500)
-			ft_imgdata(&img, i, i, 0x00FF0000);
-		mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-		i++;
-	}
-	mlx_loop(mlx);
-}*/
+		x = 0;
+		double c_im = MaxIm - y*Im_factor;
+   	 while (x++ < WIDTH)
+   	 {
+        double c_re = MinRe + x*Re_factor;
+        double Z_re = c_re, Z_im = c_im;
+        int isInside = 1;
+		n = 0;
+        while (n++ < MaxIterations)
+        {
+            double Z_re2 = Z_re*Z_re, Z_im2 = Z_im*Z_im;
+            if(Z_re2 + Z_im2 > 4)
+            {
+                isInside = 0;
+                break;
+            }
+            Z_im = 2*Z_re*Z_im + c_im;
+            Z_re = Z_re2 - Z_im2 + c_re;
+        }
+        if(isInside)  	
+			img_pix_put(&data.img, x, y, 0xFF0000);
+    }
+}
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.mlx_img, 0, 0);
+	return (0);
+}
 
-int	main(void)
+int	generate_fractal2(t_data data)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-	int		i;
-	m_data	data;
-	int		imgH;
-	int		imgW;
-
-	imgW = 800;
-	imgH = 600;
-	i = 0;
-
-	data.mlx_ptr = mlx_init();
-	if (data.mlx_ptr == NULL)
-		return (0);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, imgW, imgH,
-			"My first window!");
-	if (data.win_ptr == NULL)
-	{
-		free(data.win_ptr);
-		return (0);
-	}
-/*	mlx = mlx_init();
-	if (mlx == NULL)
-		return(0);
-	mlx_win = mlx_new_window(mlx, imgW, imgH, "Let's Fract-ol");
-	if (mlx_win == NULL)
-		return(free(mlx), 0);
-*/
-//	img.img = mlx_new_image(mlx, imgW, imgH);
-//	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.ln_len, &img.endian);
-	
-	mlx_loop_hook(data.mlx_ptr, &handle_no_event, &data);
-	mlx_key_hook(data.win_ptr, &handle_input, &data);
-
-	mlx_loop(data.mlx_ptr);
-
-	/* we will exit the loop if there's no window left, and execute this code */
-	free(data.mlx_ptr);
-
-	/*
 	double	minRe;
 	double	maxRe;
 	double	minIm;
@@ -133,55 +115,85 @@ int	main(void)
 	int		y;
 	int		maxIter;
 	int		iter;
-	int		isMan;
+	int		isSet;
 
-	maxIter = 60;
-	x = 0;
+	maxIter = 100;
 	y = 0;
 	minRe = -2.0;
 	maxRe = 1.0;
 	minIm = -1.2;
-	maxIm = minIm + (maxRe - minRe) * imgH / imgW;
-	reFact = (maxRe - minRe) / (imgW - 1);
-	imFact = (maxIm - minIm) / (imgH - 1);
-	while (y < imgH)
+	maxIm = minIm + (maxRe - minRe) * (HEIGHT / WIDTH);
+	reFact = (maxRe - minRe) / (WIDTH - 1);
+	imFact = (maxIm - minIm) / (HEIGHT - 1);
+	while (y < HEIGHT)
 	{
+		x = 0;
 		c_im = maxIm - y * imFact;
-		while (x < imgW)
+		while (x < WIDTH)
 		{
-			c_re = maxRe + x * reFact;
+			c_re = maxRe + (x * reFact);
 			z_re = c_re;
 			z_im = c_im;
 			iter = 0;
-			isMan = 1;
-			while (iter < maxIter && isMan)
+			isSet = 1;
+			while (iter < maxIter)
 			{
 				z_re2 = z_re * z_re;
 				z_im2 = z_im * z_im;
 				if (z_re2 + z_im2 > 4)
 				{
-					ft_imgdata(&img, x, y, 0xFF000000);
-					mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-					isMan = 0;
+					isSet = 0;
+					break;
 				}
-				z_im = 2 * z_re * z_im + c_im;
+				z_im = 2 * (z_re * z_im) + c_im;
 				z_re = z_re2 - z_im2 + c_re;
 				iter++;
 			}
-			if (isMan)
+			if (isSet)
 			{
-				ft_imgdata(&img, x, y, 0x00FF0000);
-				mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+				img_pix_put(&data.img, x, y, 0xFF0000); 
 			}
+			else
+				img_pix_put(&data.img, x, y, 0x00FF00); 
 			x++;
 		}
-		x = 0;
 		y++;
 	}
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.mlx_img, 0, 0);
+	return (0);
+}
 
-	mlx_loop(mlx);
-	mlx_destroy_display (mlx);
-	free (mlx);
-	*/
+
+int	main(void)
+{
+	t_data	data;
+
+	data.mlx_ptr = mlx_init();
+	if (data.mlx_ptr == NULL)
+		return (MLX_ERROR);
+
+	data.win_ptr = mlx_new_window(data.mlx_ptr, WIDTH, HEIGHT, "Let's Fract-ol");
+	if (data.win_ptr == NULL)
+	{
+		free(data.win_ptr);
+		return (MLX_ERROR);
+	}
+	data.img.mlx_img = mlx_new_image(data.mlx_ptr, WIDTH, HEIGHT);
+	if (!data.img.mlx_img)
+	{
+		ft_close(&data);
+		printf("MLX image creation error.\n");
+		return (MLX_ERROR);
+	}
+	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp, \
+							&data.img.ln_len, &data.img.endian);
+/* Setup hooks */ 
+//	mlx_loop_hook(data.mlx_ptr, &generate_fractal, &data);
+	generate_fractal(data);
+	mlx_key_hook(data.win_ptr, &handle_keys, &data);
+	mlx_loop(data.mlx_ptr);
+
+	/* we will exit the loop if there's no window left, and execute this code */
+	free(data.mlx_ptr);
 
 }
