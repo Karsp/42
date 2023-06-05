@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/05 15:21:20 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/05 22:04:34 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,14 @@ int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 int		make_color(t_data *data);
+void	shift_color(t_data *data);
+void	apply_shift(t_data *data);
 
 // Mandelbrot functions
-int	isMandelbrot(t_data data, double c_im, double c_re);
+int	ismandelbrot(t_data *data, double c_im, double c_re);
 
 // sort / analize functions
-int	generate_fractal(t_data data);
+int	generate_fractal(t_data *data);
 
 // event handling functions:
 int	handle_mouse(int keysym, void *data);
