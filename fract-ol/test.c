@@ -1,6 +1,7 @@
 #include "ft_fractol.h"
 
 
+
 void	ft_close(m_data *data)
 {
 	if (data->win_ptr)
@@ -23,45 +24,67 @@ int	handle_input(int keysym, m_data *data)
 	return (0);
 }
 
-void	ft_mandelbrot(int imgW, int imgH)
+void	img_pix_put(t_img *img, int x, int y, int color)
 {
+	char    *pixel;
 
+    pixel = img->addr + (y * img->ln_len + x * (img->bpp / 8));
+	*(int *)pixel = color;
 }
 
-void	ft_imgdata(t_data *data, int x, int y, int color)
+int	isMandelbrot(int n, double Z_re, double Z_im, double c_im, double c_re)
 {
-	char	*dst;
+	double Z_re2;
+    double Z_im2;
 
-	dst = data->addr + (y * data->ln_len + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
-}
-
-/*void	print_pxl(int x, int y)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-	int		i;
-	int		imgH;
-	int		imgW;
-
-	imgW = 1080;
-	imgH = 1920;
-	i = 0;
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, imgW, imgH, "Let's Fract-ol");
-	img.img = mlx_new_image(mlx, imgW, imgH);
-	img.addr = mlx_get_data_addr(img.img, &img.bpp, &img.ln_len, &img.endian);
-	while (i <= 1000)
+	while (n++ < MAX_ITERATION)
 	{
-		ft_imgdata(&img, 5, i, 0x00FF0000);
-		if (i > 500)
-			ft_imgdata(&img, i, i, 0x00FF0000);
-		mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-		i++;
+		Z_re2 = Z_re * Z_re;
+		Z_im2 = Z_im * Z_im;
+		if(Z_re2 + Z_im2 > 4)
+			return (0);
+		Z_im = 2*Z_re*Z_im + c_im;
+		Z_re = Z_re2 - Z_im2 + c_re;
 	}
-	mlx_loop(mlx);
-}*/
+	return (1);
+}
+
+
+int	generate_fractal(t_data data)
+{
+	/*set the area defining the four corners */
+	double MinRe = -2.0;
+	double MaxRe = 1.0;
+	double MinIm = -1.2;
+	double MaxIm = MinIm+(MaxRe-MinRe)*HEIGHT/WIDTH;
+	double c_im;
+	double c_re;
+	double Z_re;
+	double Z_im;
+	unsigned y;
+	unsigned x;
+	unsigned n;
+
+	y = 0;
+	while (y++ < HEIGHT)
+	{
+		x = 0;
+		c_im = MaxIm - y * (MaxIm-MinIm)/(HEIGHT-1);
+   	 while (x++ < WIDTH)
+   	 {
+        c_re = MinRe + x * (MaxRe-MinRe)/(WIDTH-1);
+        Z_re = c_re;
+		Z_im = c_im;
+		n = 0;
+        if (isMandelbrot(n, Z_re, Z_im, c_im, c_re))
+			img_pix_put(&data.img, x, y, 0xFF0000);
+		else
+			img_pix_put(&data.img, x, y, make_color(&data));
+    }
+}
+	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img.mlx_img, 0, 0);
+	return (0);
+}
 
 int	main(void)
 {

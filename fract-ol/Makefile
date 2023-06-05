@@ -3,9 +3,9 @@ EXE = fractol
 
 EXELIB	=	libftfractol.a
 
-#LIB 	=	libft/libft.a
+LIB 	=	libft/libft.a
 
-SRC = ft_fractol.c \
+SRC = ft_fractol.c fractol_utils.c setInit.c color.c render.c events.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -22,13 +22,15 @@ RM = rm -f
 all : $(EXE)
 
 $(EXE) : $(OBJ)
-	 $(COMP) $(OBJ) -o $@
+	$(MAKE) bonus -C ./libft
+	$(COMP) $(OBJ) -o $@
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean :
 	$(RM) $(OBJ)
+	$(MAKE) fclean -C ./libft
 
 fclean : clean
 	$(RM) $(EXE)
