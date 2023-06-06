@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/05 22:04:34 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:26:32 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 	double			center_re;
 	int				color_shift;
 	int				set;
+	int				res;
 }	t_data;
 
 // initialization functions
@@ -70,10 +71,10 @@ int		get_b(int trgb);
 int		make_color(t_data *data);
 void	shift_color(t_data *data);
 void	apply_shift(t_data *data);
-
+void	shift_res(t_data *data);
 // Mandelbrot functions
-int	ismandelbrot(t_data *data, double c_im, double c_re);
-
+//int	ismandelbrot(int n, double Z_re, double Z_im, double c_im, double c_re);
+int     ismandelbrot(t_data *data, double c_im, double c_re);
 // sort / analize functions
 int	generate_fractal(t_data *data);
 
