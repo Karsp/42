@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/06 17:26:32 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/06 22:57:42 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "./libft/libft.h"
 # define HEIGHT 600
 # define WIDTH 800
-# define MAX_ITERATION 30
+# define MAX_ITERATION 60
 # define MLX_ERROR 1
 
 typedef struct s_color
@@ -54,7 +54,7 @@ typedef struct s_data
 	double			center_re;
 	int				color_shift;
 	int				set;
-	int				res;
+	int				res_shift;
 }	t_data;
 
 // initialization functions
@@ -64,14 +64,14 @@ t_data	clean_init(void);
 // render and color functions
 void	img_pix_put(t_img *img, int x, int y, int color);
 int		create_trgb(int t, int r, int g, int b);
-int		get_t(int trgb);
+int		get_light(int i, t_data *data);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);
 int		make_color(t_data *data);
 void	shift_color(t_data *data);
 void	apply_shift(t_data *data);
-void	shift_res(t_data *data);
+void	shift_resolution(t_data *data);
 // Mandelbrot functions
 //int	ismandelbrot(int n, double Z_re, double Z_im, double c_im, double c_re);
 int     ismandelbrot(t_data *data, double c_im, double c_re);

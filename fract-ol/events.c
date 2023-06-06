@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:25:48 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/06 17:14:31 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:45:50 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -36,7 +36,7 @@ int	handle_keys(int keysym, t_data *data)
 	if (keysym == 53)
 		ft_close(data);
 	if (keysym == 257)
-		shift_res(data);
+		shift_resolution(data);
 	printf("Keypress: %d\n", keysym);
 	return (0);
 }

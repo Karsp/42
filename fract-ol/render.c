@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 11:53:11 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/06 17:24:36 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/06 22:47:57 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -16,10 +16,10 @@ int	make_color(t_data *data)
 	int	color_value;
 
 	color_value = data->iter * 15;
-	apply_shift(data);
 	data->color->r = get_r(color_value);
 	data->color->g = get_g(color_value);
 	data->color->b = get_b(color_value);
+	apply_shift(data);
 	return (create_trgb(0, data->color->r, data->color->g, data->color->b));
 }
 
@@ -63,8 +63,8 @@ void	apply_shift(t_data *data)
 	return ;
 }
 
-void	shift_res(t_data *data)
+void	shift_resolution(t_data *data)
 {
-	data->res += 10;
+	data->res_shift += 10;
 	return ;
 }
