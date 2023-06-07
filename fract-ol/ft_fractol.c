@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 01:04:14 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/06 23:02:45 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/07 02:20:38 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -37,7 +37,7 @@ int	ismandelbrot(t_data *data, double c_im, double c_re)
 	return (1);
 }
 
-int	generate_fractal(t_data *data)
+void	generate_mandelbrot(t_data *data)
 {
 	double c_im;
 	double c_re;
@@ -54,22 +54,16 @@ int	generate_fractal(t_data *data)
    	 {
         c_re = data->min_re + ((double)x *
 				(data->max_re - data->min_re) / WIDTH);
-	//		img_pix_put(&data->img, x, y, 0xFF0000);
         if (ismandelbrot(data, c_im, c_re))
 			img_pix_put(&data->img, x, y, 0x000000);
 		else
 		{
-		//	get_light(data->iter, data);
-		//	printf("Percent %d color %d, iter %d\n", ((data->iter * 100) / 
-		//			(MAX_ITERATION)), ((40 / 100)*255), data->iter);
-		//	printf("R: %d G: %d B: %d\n", data->color->r, data->color->g, 
-		//			data->color->b);
-			img_pix_put(&data->img, x, y, get_light(data->iter, data));
+		//	img_pix_put(&data->img, x, y, get_light(data->iter, data));
+			img_pix_put(&data->img, x, y, make_color(data));
 		}
     }
 }
 	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img.mlx_img, 0, 0);
-	return (0);
 }
 
 int	main(void)
@@ -98,11 +92,10 @@ int	main(void)
 	data.img.addr = mlx_get_data_addr(data.img.mlx_img, &data.img.bpp, \
 							&data.img.ln_len, &data.img.endian);
 	/* Generate fractal*/
-	generate_fractal(&data);
+	mlx_loop_hook(data.mlx_ptr, &generate_fractal, &data);
 	/* Setup hooks */
-	mlx_key_hook(data.win_ptr, &handle_keys, &data);
+	handle_events(&data);
 	mlx_loop(data.mlx_ptr);
-	/* we will exit the loop if there's no window left, and execute this code */
 	free(data.mlx_ptr);
 }
 
