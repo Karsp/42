@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isalpha.c                                          :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 13:13:26 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/07 19:28:22 by daviles-         ###   ########.fr       */
+/*   Created: 2023/06/07 19:07:39 by daviles-          #+#    #+#             */
+/*   Updated: 2023/06/08 01:04:17 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
-// The isalpha() function tests for any character for which isupper(3) or
-//  islower(3) is true.returns zero if the character tests false and returns
-//  non-zero if the character tests true.
+#include "ft_fractol.h"
 
-int	ft_isalpha(int c)
+int	check_arg(char **argv)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	ft_striteri(argv[1], my_tolower);
+	if (!ft_strncmp(argv[1], "mandelbrot", 10))
 		return (1);
+	else if (!ft_strncmp(argv[1], "julia", 5))
+		return (2);
+	else if (!ft_strncmp(argv[1], "1", 1))
+		return (1);
+	else if (!ft_strncmp(argv[1], "2", 1))
+		return (2);
 	else
 		return (0);
 }
