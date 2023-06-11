@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/11 02:13:03 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/11 04:52:17 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct s_data
 	double	center_re;
 	double	julia_kx;
 	double	julia_ky;
+	int		mouse_move;
+	int		julia_set;
 	int		color_shift;
 	int		set;
 	int		res_shift;
@@ -67,10 +69,17 @@ enum
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
+	ON_LCLICK = 1,
+	ON_RCLICK = 2,
 	ON_MOUSEUP = 5,
 	ON_MOUSEMOVE = 6,
 	ON_EXPOSE = 12,
-	ON_DESTROY = 17
+	ON_DESTROY = 17,
+	J = 38,
+	M = 46,
+	SPACE = 49,
+	L_SHIFT = 257,
+	R_SHIFT = 258,
 };
 
 // initialization functions
@@ -92,14 +101,16 @@ void	shift_resolution(t_data *data);
 void	move(t_data	*data, char key);
 void	mouse_zoom(t_data *data, double zoom, int x, int y);
 void	ft_close(t_data *data);
+void	mouse_move_shift(t_data *data);
 int	handle_mouse_move(int x, int y, t_data *data);
+void	shift_julia_set(t_data *data);
 // Mandelbrot functions
 int		ismandelbrot(t_data *data, double c_im, double c_re);
 void	generate_mandelbrot(t_data *data);
 // Julia functions
 int		isjulia(t_data *data, double z_im, double z_re);
 void	generate_julia(t_data *data);
-void	new_julia(int x, int y, t_data *data);
+void	new_julia(double x, double y, t_data *data);
 // sort / analize functions
 int		check_arg(char **argva);
 // event handling functions:

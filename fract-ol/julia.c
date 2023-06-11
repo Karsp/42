@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 01:07:44 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/10 18:18:45 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/11 05:06:34 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -60,12 +60,33 @@ void	generate_julia(t_data *data)
 		data->img.mlx_img, 0, 0);
 }
 
-void	new_julia(int x, int y, t_data *data)
+void	new_julia(double x, double y, t_data *data)
 {
 	data->julia_ky = data->max_im + ((double)y * (data->min_im
 					- data->max_im) / HEIGHT);
 	data->julia_kx = data->min_re + ((double)x * (data->max_re
 						- data->min_re) / WIDTH);
-	printf("New Julia Z value: %d  %d\n", x, y);
+	printf("New Julia Z value: %f  %f\n", x, y);
 	printf("New Julia Z value: %f  %f\n", data->julia_kx, data->julia_ky);
+}
+
+void	shift_julia_set(t_data *data)
+{
+	if (data->julia_set == 1)
+	{
+		data->julia_ky = -0.4;
+		data->julia_kx = -0.59;
+	}
+	else if (data->julia_set == 2)
+		new_julia(0.34, -0.05, data);
+	else if (data->julia_set == 3)
+		new_julia(0.355, 0.355, data);
+	else if (data->julia_set == 4)
+		new_julia(0, 0.8, data);
+	else if (data->julia_set == 5)
+		new_julia(0, 0.8, data);
+	data->julia_set += 1;
+	if (data->julia_set >= 8)
+		data->julia_set = 0;
+	printf("JULIASET = %d", data->julia_set);
 }

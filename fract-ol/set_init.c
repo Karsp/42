@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:07:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/08 03:51:58 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/11 04:11:59 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -28,6 +28,8 @@ t_data	clean_init(void)
 	data.center_re = 0;
 	data.julia_kx = 0;
 	data.julia_ky = 0;
+	data.julia_set = 0;
+	data.mouse_move = 0;
 	data.img.mlx_img = ft_calloc(1, sizeof(t_img));
 	data.color = ft_calloc(1, sizeof(t_color));
 	data.res_shift = 0;

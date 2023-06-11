@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 01:55:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/11 04:00:06 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/11 04:47:50 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -62,4 +62,12 @@ void	mouse_zoom(t_data *data, double zoom, int x, int y)
 	data->max_im = normalized_radius_im + origin_im;
 	data->min_im = origin_im - normalized_radius_im;
 	return ;
+}
+
+void	mouse_move_shift(t_data *data)
+{
+	if (data->mouse_move == 1)
+		data->mouse_move = 0;
+	else if (data->mouse_move == 0)
+		data->mouse_move = 1;
 }
