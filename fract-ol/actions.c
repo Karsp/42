@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 01:55:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/11 02:02:38 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/11 04:00:06 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -40,20 +40,17 @@ void	move(t_data	*data, char key)
 
 void	mouse_zoom(t_data *data, double zoom, int x, int y)
 {
-	double	normalized_x = data->max_re + ((double)x * (data->min_re
+	double	normalized_x = data->max_re + ((double)(WIDTH - x) * (data->min_re
 				- data->max_re) / WIDTH);
 	double	normalized_y = data->max_im + ((double)y * (data->min_im
 				- data->max_im) / HEIGHT);
 	double	origin_im = ((data->max_im - data->min_im) / 2) + data->min_im;
-//	double	origin_im = ((data->min_im - data->max_im) / 2) + data->max_im;
 	double	origin_re = ((data->max_re - data->min_re) / 2) + data->min_re;
 	double	normalized_radius_re = data->max_re - origin_re;
 	double	normalized_radius_im = data->max_im - origin_im;
 	double	delta_x = (normalized_x - origin_re);
 	double	delta_y = (normalized_y - origin_im);
 	
-	printf("Oim: %lf Ore: %lf maxIm: %lf minIm: %lf\n", origin_im,
-			origin_re, data->max_im, data->min_im);
 	normalized_radius_re *= zoom;
 	normalized_radius_im *= zoom;
 	delta_x *= zoom;
@@ -64,8 +61,5 @@ void	mouse_zoom(t_data *data, double zoom, int x, int y)
 	data->min_re = origin_re - normalized_radius_re;
 	data->max_im = normalized_radius_im + origin_im;
 	data->min_im = origin_im - normalized_radius_im;
-	printf("NEW maxRe: %lf minRe: %lf maxIm: %lf minIm: %lf\n",data->max_re,
-			data->min_re, data->max_im, data->min_im);
-	
 	return ;
 }
