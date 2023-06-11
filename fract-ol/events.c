@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:25:48 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/10 16:20:05 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/11 02:13:02 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -27,6 +27,7 @@ int	handle_events(t_data *data)
 {
 	mlx_key_hook(data->win_ptr, &handle_keys, data);
 	mlx_hook(data->win_ptr, ON_MOUSEDOWN, 0, handle_mouse, data);
+	mlx_hook(data->win_ptr, ON_MOUSEMOVE, (1L<<6), handle_mouse_move, data);
 	mlx_hook(data->win_ptr, ON_DESTROY, 0, (void *)ft_close, data);
 	return (0);
 }
@@ -53,7 +54,7 @@ int	handle_keys(int keysym, t_data *data)
 		move(data, 'D');
 	if (keysym == 126 || keysym == 13)
 		move(data, 'U');
-//	printf("Keypress: %d\n", keysym);
+	printf("Keypress: %d\n", keysym);
 	return (0);
 }
 
@@ -64,6 +65,15 @@ int	handle_mouse(int keysym, int x, int y, t_data *data)
 	if (keysym == 5)
 		mouse_zoom(data, 1.1, x, y);
 	if (keysym == 1 && data->set == 2)
+		new_julia(x, y, data);
+	if (keysym == 1 && data->set == 1)
+		mouse_zoom(data, 0.9, x, y);
+	return (0);
+}
+
+int	handle_mouse_move(int x, int y, t_data *data)
+{
+	if (data->set == 2)
 		new_julia(x, y, data);
 	return (0);
 }

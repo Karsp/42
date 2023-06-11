@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/08 03:11:40 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/11 02:13:03 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	shift_resolution(t_data *data);
 void	move(t_data	*data, char key);
 void	mouse_zoom(t_data *data, double zoom, int x, int y);
 void	ft_close(t_data *data);
+int	handle_mouse_move(int x, int y, t_data *data);
 // Mandelbrot functions
 int		ismandelbrot(t_data *data, double c_im, double c_re);
 void	generate_mandelbrot(t_data *data);
