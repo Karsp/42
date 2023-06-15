@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:07:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 18:17:31 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:58:26 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -26,6 +26,8 @@ t_data	clean_init(void)
 	data.set = 0;
 	data.center_im = 0;
 	data.center_re = 0;
+	data.norm_x = 0;
+	data.norm_y = 0;
 	data.julia_kx = 0;
 	data.julia_ky = 0;
 	data.julia_set = 0;

@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 18:12:49 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:05:51 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ typedef struct s_data
 	double	max_im;
 	double	center_im;
 	double	center_re;
+	double	norm_x;
+	double	norm_y;
 	double	julia_kx;
 	double	julia_ky;
 	int		mouse_move;
@@ -125,7 +127,7 @@ void	apply_julia_set(t_data *data, double ky, double kx);
 int		check_arg(char **argva);
 // event handling functions:
 int		handle_mouse(int keysym, int x, int y, t_data *data);
-int		handle_keys(int keysym, t_data *data);
+void	handle_keys(int keysym, t_data *data);
 int		handle_events(t_data *data);
 
 #endif

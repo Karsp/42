@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:25:48 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 18:10:26 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:06:10 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -32,7 +32,7 @@ int	handle_events(t_data *data)
 	return (0);
 }
 
-int	handle_keys(int keysym, t_data *data)
+void	handle_keys(int keysym, t_data *data)
 {
 	if (keysym == SPACE)
 		shift_color(data);
@@ -58,8 +58,6 @@ int	handle_keys(int keysym, t_data *data)
 		move(data, 'D');
 	if (keysym == A_UP || keysym == W)
 		move(data, 'U');
-	ft_printf("Keypress: %d\n", keysym);
-	return (0);
 }
 
 int	handle_mouse(int keysym, int x, int y, t_data *data)
