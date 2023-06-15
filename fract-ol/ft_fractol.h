@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/11 04:52:17 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:12:49 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,15 @@ enum
 	SPACE = 49,
 	L_SHIFT = 257,
 	R_SHIFT = 258,
+	W = 13,
+	S = 1,
+	A = 0,
+	D = 2,
+	A_UP = 126,
+	A_DOWN = 125,
+	A_LEFT = 123,
+	A_RIGHT = 124,
+	ESC = 53,
 };
 
 // initialization functions
@@ -102,7 +111,7 @@ void	move(t_data	*data, char key);
 void	mouse_zoom(t_data *data, double zoom, int x, int y);
 void	ft_close(t_data *data);
 void	mouse_move_shift(t_data *data);
-int	handle_mouse_move(int x, int y, t_data *data);
+int		handle_mouse_move(int x, int y, t_data *data);
 void	shift_julia_set(t_data *data);
 // Mandelbrot functions
 int		ismandelbrot(t_data *data, double c_im, double c_re);
@@ -111,6 +120,7 @@ void	generate_mandelbrot(t_data *data);
 int		isjulia(t_data *data, double z_im, double z_re);
 void	generate_julia(t_data *data);
 void	new_julia(double x, double y, t_data *data);
+void	apply_julia_set(t_data *data, double ky, double kx);
 // sort / analize functions
 int		check_arg(char **argva);
 // event handling functions:

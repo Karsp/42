@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:07:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/11 04:11:59 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:17:31 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -39,7 +39,7 @@ t_data	clean_init(void)
 void	set_minmaxnum(t_data *data)
 {
 	data->min_re = -2.0;
-	data->max_re = 1.0;
+	data->max_re = 1.2;
 	data->min_im = -1.2;
 	data->max_im = data->min_im + (data->max_re - data->min_re)
 		* HEIGHT / WIDTH;

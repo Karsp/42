@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 01:04:14 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/11 00:52:46 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:26:48 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -34,6 +34,6 @@ int	main(int argc, char **argv)
 		else
 			ft_printf("Check argument.\n%s%s", ARG_MESS, F_OPTIONS);
 	}
-//	system("leaks fractol");
+	system("leaks fractol");
 	return (0);
 }

@@ -12,7 +12,7 @@ OBJ = $(SRC:.c=.o)
 
 CC	= gcc
 
-CFLAGS = -Wall -Wextra -fsanitize=address -g3
+CFLAGS = -Wall -Wextra# -fsanitize=address -g3
 
 MLX = -lmlx -framework OpenGL -framework AppKit -L ./mlx
 

@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 01:07:44 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/11 05:06:34 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 17:59:28 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -63,30 +63,41 @@ void	generate_julia(t_data *data)
 void	new_julia(double x, double y, t_data *data)
 {
 	data->julia_ky = data->max_im + ((double)y * (data->min_im
-					- data->max_im) / HEIGHT);
+				- data->max_im) / HEIGHT);
 	data->julia_kx = data->min_re + ((double)x * (data->max_re
-						- data->min_re) / WIDTH);
+				- data->min_re) / WIDTH);
 	printf("New Julia Z value: %f  %f\n", x, y);
 	printf("New Julia Z value: %f  %f\n", data->julia_kx, data->julia_ky);
 }
 
 void	shift_julia_set(t_data *data)
 {
-	if (data->julia_set == 1)
-	{
-		data->julia_ky = -0.4;
-		data->julia_kx = -0.59;
-	}
+	if (data->julia_set == 0)
+		apply_julia_set(data, -0.4, -0.59);
+	else if (data->julia_set == 1)
+		apply_julia_set(data, 0.34, -0.05);
 	else if (data->julia_set == 2)
-		new_julia(0.34, -0.05, data);
+		apply_julia_set(data, -1.476, 0);
 	else if (data->julia_set == 3)
-		new_julia(0.355, 0.355, data);
+		apply_julia_set(data, 0.355, 0.355);
 	else if (data->julia_set == 4)
-		new_julia(0, 0.8, data);
+		apply_julia_set(data, -0.54, 0.54);
 	else if (data->julia_set == 5)
-		new_julia(0, 0.8, data);
+		apply_julia_set(data, 0.285, 0.01);
+	else if (data->julia_set == 6)
+		apply_julia_set(data, 0.355534, 0.337292);
+	else if (data->julia_set == 7)
+		apply_julia_set(data, -0.835, -0.2321);
+	else if (data->julia_set == 8)
+		apply_julia_set(data, -0.79, 0.15);
+	ft_printf("Actual Julia SET = %d\n", data->julia_set);
 	data->julia_set += 1;
-	if (data->julia_set >= 8)
+	if (data->julia_set > 8)
 		data->julia_set = 0;
-	printf("JULIASET = %d", data->julia_set);
+}
+
+void	apply_julia_set(t_data *data, double ky, double kx)
+{
+	data->julia_ky = ky;
+	data->julia_kx = kx;
 }
