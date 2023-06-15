@@ -6,10 +6,10 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 01:55:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 19:05:34 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 21:53:57 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_fractol.h"
+#include "../ft_fractol.h"
 
 void	move(t_data	*data, char key)
 {
@@ -17,13 +17,13 @@ void	move(t_data	*data, char key)
 	data->center_im = data->min_im - data->max_im;
 	if (key == 'U')
 	{
-		data->min_im -= data->center_im * 0.1;
-		data->max_im -= data->center_im * 0.1;
+		data->min_im += data->center_im * 0.1;
+		data->max_im += data->center_im * 0.1;
 	}
 	if (key == 'D')
 	{
-		data->min_im += data->center_im * 0.1;
-		data->max_im += data->center_im * 0.1;
+		data->min_im -= data->center_im * 0.1;
+		data->max_im -= data->center_im * 0.1;
 	}
 	if (key == 'R')
 	{
@@ -47,7 +47,7 @@ void	mouse_zoom(t_data *data, double zoom, int x, int y)
 
 	data->norm_x = data->max_re + ((double)(WIDTH - x) *(data->min_re
 				- data->max_re) / WIDTH);
-	data->norm_y = data->max_im + ((double)y * (data->min_im
+	data->norm_y = data->max_im + ((double)(HEIGHT - y) * (data->min_im
 				- data->max_im) / HEIGHT);
 	data->center_im = ((data->max_im - data->min_im) / 2) + data->min_im;
 	data->center_re = ((data->max_re - data->min_re) / 2) + data->min_re;

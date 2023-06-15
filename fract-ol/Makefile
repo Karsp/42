@@ -4,11 +4,15 @@ EXELIB	=	libftfractol.a
 
 LIB 	=	libft/libft.a
 
-SRC = ft_fractol.c set_init.c color.c render.c events.c actions.c \
-	  mandelbrot.c sort.c julia.c
+SRC_DIR = srcs
 
+SRC_BONUS_DIR = bonus
 
+SRC = $(addprefix $(SRC_DIR)/, ft_fractol.c set_init.c color.c render.c events.c actions.c \
+	  mandelbrot.c sort.c julia.c burning_ship.c)
 OBJ = $(SRC:.c=.o)
+
+B_OBJ = $(SRC_BONUS: .c=.o)
 
 CC	= gcc
 
@@ -20,6 +24,7 @@ COMP = $(CC) $(CFLAGS) $(LIB) $(MLX)
 
 RM = rm -f
 
+
 all : $(EXE)
 
 $(EXE) : $(OBJ)
@@ -30,7 +35,7 @@ $(EXE) : $(OBJ)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean :
-	$(RM) $(OBJ)
+	$(RM) $(B_OBJ)
 	$(MAKE) fclean -C ./libft
 
 fclean : clean

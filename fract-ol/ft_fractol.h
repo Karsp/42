@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 19:05:51 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 21:16:32 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ void	move(t_data	*data, char key);
 void	mouse_zoom(t_data *data, double zoom, int x, int y);
 void	ft_close(t_data *data);
 void	mouse_move_shift(t_data *data);
-int		handle_mouse_move(int x, int y, t_data *data);
-void	shift_julia_set(t_data *data);
 // Mandelbrot functions
 int		ismandelbrot(t_data *data, double c_im, double c_re);
 void	generate_mandelbrot(t_data *data);
@@ -123,11 +121,16 @@ int		isjulia(t_data *data, double z_im, double z_re);
 void	generate_julia(t_data *data);
 void	new_julia(double x, double y, t_data *data);
 void	apply_julia_set(t_data *data, double ky, double kx);
+void	shift_julia_set(t_data *data);
+// Burning ship functions
+void	generate_burnship(t_data *data);
+int		isburnship(t_data *data, double c_im, double c_re);
 // sort / analize functions
 int		check_arg(char **argva);
 // event handling functions:
 int		handle_mouse(int keysym, int x, int y, t_data *data);
-void	handle_keys(int keysym, t_data *data);
+int		handle_keys(int keysym, t_data *data);
 int		handle_events(t_data *data);
+int		handle_mouse_move(int x, int y, t_data *data);
 
 #endif
