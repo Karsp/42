@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:25:48 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 16:29:55 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:30:35 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -19,7 +19,8 @@ void	ft_close(t_data *data)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	if (data->color)
 		free(data->color);
-	ft_printf("\nExit program.");
+	ft_printf("\n##  Exit program  ##\n");
+	ft_printf("\033[0;35m      龴ↀ ◡ↀ 龴   \n");
 	exit(0);
 }
 

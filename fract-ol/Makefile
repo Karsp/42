@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/06/21 16:54:27 by daviles-         ###   ########.fr        #
+#    Updated: 2023/06/21 20:32:43 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJ = $(SRC:.c=.o)
 
 CC	= gcc
 
-CFLAGS = -Wall -Wextra# -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -fsanitize=address -g3
 
 MLX = -lmlx -framework OpenGL -framework AppKit -L ./mlx
 
