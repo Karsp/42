@@ -6,10 +6,10 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 01:55:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 21:53:57 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:36:16 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../ft_fractol.h"
+#include "ft_fractol.h"
 
 void	move(t_data	*data, char key)
 {

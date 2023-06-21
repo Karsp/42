@@ -6,18 +6,18 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 21:16:32 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/15 22:15:32 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FRACTOL_H
 # define FT_FRACTOL_H
 
-# include  "./mlx/mlx.h"
+# include  "../mlx/mlx.h"
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h>
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 # define HEIGHT 600
 # define WIDTH 800
 # define MAX_ITERATION 30
