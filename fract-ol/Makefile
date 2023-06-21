@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/06/21 16:33:13 by daviles-         ###   ########.fr        #
+#    Updated: 2023/06/21 16:54:27 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,11 @@ all : $(EXE)
 $(EXE) : $(OBJ)
 	$(MAKE) bonus -C ./libft
 	$(COMP) $(OBJ) -o $@
+	@echo "$(GREEN)\nFractol is ready to go!$(NOC)"
+	@echo "$(YELLOW)    _       _       _"
+	@echo " __(.)<  __(.)>  __(.)="
+	@echo " \___)   \___)   \___)$(NOC)"
+	@echo "$(GREEN)\nRun ./Fractol to read instructions.\n$(NOC)"
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c -o $@ $<

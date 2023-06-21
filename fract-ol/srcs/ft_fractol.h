@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 16:30:46 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:27:28 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,14 @@
 # define WIDTH 800
 # define MAX_ITERATION 30
 # define ARG_MESS "Please write the name or number of the choosen fractal.\n"
-# define F_OPTIONS " 1-Mandelbrot\n 2-Julia\n"
+# define F_OPTIONS " 1-Mandelbrot\n 2-Julia\n 3-Burning_ship\n"
+# define F_KEYS1 "Move with WASD or ARROWS\nPress Space to switch colors\n"
+# define F_KEYS2 "Use Mouse Wheel to zoom in / out\n"
+# define F_KEYS3 "Press Shift to switch resolution\n"
+# define J_KEYS1 "Press R-Click on windows to generate new fractal\n"
+# define J_KEYS2 "Press M to enter/quit fractal generation live mode\n"
+# define J_KEYS3 "Press J to render recomended fractal set\n"
+# define M_KEYS1 "Press L-Click or  R-Click on windows to zoom\n"
 # define MLX_ERROR 1
 
 typedef struct s_color
@@ -97,6 +104,7 @@ enum
 t_data	clean_init(void);
 int		data_init(t_data *data);
 void	set_minmaxnum(t_data *data);
+void	print_help(t_data *data);
 // render and color functions
 int		generate_fractal(t_data *data);
 void	img_pix_put(t_img *img, int x, int y, int color);

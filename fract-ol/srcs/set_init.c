@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:07:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 15:39:19 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:26:32 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -70,3 +70,24 @@ int	data_init(t_data *data)
 							&data->img.ln_len, &data->img.endian);
 	return (1);
 }
+
+void	print_help(t_data *data)
+{
+	if (data->set == 1)
+	{
+		ft_printf("##  Running Mandelbrot Set  ##\n");
+		ft_printf("%s%s%s%s", F_KEYS1, F_KEYS2, F_KEYS3, M_KEYS1);
+	}
+	if (data->set == 2)
+	{
+		ft_printf("##  Running Julia Set  ##\n");
+		ft_printf("%s%s%s", F_KEYS1, F_KEYS2, F_KEYS3);
+		ft_printf("%s%s%s", J_KEYS1, J_KEYS2, J_KEYS3);
+	}
+	if (data->set == 3)
+	{
+		ft_printf("##  Running Burning Ship  ##\n");
+		ft_printf("%s%s%s", F_KEYS1, F_KEYS2, F_KEYS3);
+	}
+}
+

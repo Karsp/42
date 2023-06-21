@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 01:04:14 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 15:38:15 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 17:27:23 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 			data = clean_init();
 			data.set = check_arg(argv);
 			data_init(&data);
+			print_help(&data);
 			mlx_loop_hook(data.mlx_ptr, &generate_fractal, &data);
 			handle_events(&data);
 			mlx_loop(data.mlx_ptr);
