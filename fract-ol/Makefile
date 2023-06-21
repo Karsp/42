@@ -35,7 +35,7 @@ $(EXE) : $(OBJ)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean :
-	$(RM) $(B_OBJ)
+	$(RM) $(OBJ)
 	$(MAKE) fclean -C ./libft
 
 fclean : clean
