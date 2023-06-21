@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 01:04:14 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 17:26:48 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:38:15 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 
 	if (argc == 1)
-		printf("Argument missing.\n%s%s", ARG_MESS, F_OPTIONS);
+		ft_printf("Argument missing.\n%s%s", ARG_MESS, F_OPTIONS);
 	else if (argc >= 3)
 		ft_printf("Too many arguments.\n%s%s", ARG_MESS, F_OPTIONS);
 	else if (argc == 2)
@@ -34,6 +34,5 @@ int	main(int argc, char **argv)
 		else
 			ft_printf("Check argument.\n%s%s", ARG_MESS, F_OPTIONS);
 	}
-	system("leaks fractol");
 	return (0);
 }

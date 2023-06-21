@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 14:25:48 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 14:10:32 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:29:55 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -50,23 +50,26 @@ int	handle_keys(int keysym, t_data *data)
 			data->res_shift = 10;
 		ft_printf("Resolution: %d\n", data->res_shift + MAX_ITERATION);
 	}
-	if (keysym == A_LEFT || keysym == A)
-		move(data, 'L');
-	if (keysym == A_RIGHT || keysym == D)
-		move(data, 'R');
-	if (keysym == A_DOWN || keysym == S)
-		move(data, 'D');
-	if (keysym == A_UP || keysym == W)
-		move(data, 'U');
+	check_move(data, keysym);
 	return (0);
 }
 
 int	handle_mouse(int keysym, int x, int y, t_data *data)
 {
-	if (keysym == ON_MOUSEDOWN)
-		mouse_zoom(data, 0.9, x, y);
-	if (keysym == ON_MOUSEUP)
-		mouse_zoom(data, 1.1, x, y);
+	if (data->set == 3)
+	{
+		if (keysym == ON_MOUSEDOWN)
+			mouse_zoom_bonus(data, 0.9, x, y);
+		if (keysym == ON_MOUSEUP)
+			mouse_zoom_bonus(data, 1.1, x, y);
+	}
+	else
+	{
+		if (keysym == ON_MOUSEDOWN)
+			mouse_zoom(data, 0.9, x, y);
+		if (keysym == ON_MOUSEUP)
+			mouse_zoom(data, 1.1, x, y);
+	}
 	if (keysym == ON_RCLICK && data->set == 2)
 		new_julia((double)x, (double)y, data);
 	if (keysym == ON_LCLICK && data->set == 1)

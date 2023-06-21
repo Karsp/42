@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 22:15:32 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 16:30:46 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void	apply_shift(t_data *data);
 void	shift_resolution(t_data *data);
 // actions
 void	move(t_data	*data, char key);
+void	move_bonus(t_data	*data, char key);
 void	mouse_zoom(t_data *data, double zoom, int x, int y);
 void	ft_close(t_data *data);
 void	mouse_move_shift(t_data *data);
@@ -127,6 +128,8 @@ void	generate_burnship(t_data *data);
 int		isburnship(t_data *data, double c_im, double c_re);
 // sort / analize functions
 int		check_arg(char **argva);
+void	mouse_zoom_bonus(t_data *data, double zoom, int x, int y);
+void	check_move(t_data *data, int keysym);
 // event handling functions:
 int		handle_mouse(int keysym, int x, int y, t_data *data);
 int		handle_keys(int keysym, t_data *data);

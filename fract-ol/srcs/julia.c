@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 01:07:44 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 17:59:28 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:40:32 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -66,8 +66,8 @@ void	new_julia(double x, double y, t_data *data)
 				- data->max_im) / HEIGHT);
 	data->julia_kx = data->min_re + ((double)x * (data->max_re
 				- data->min_re) / WIDTH);
-	printf("New Julia Z value: %f  %f\n", x, y);
-	printf("New Julia Z value: %f  %f\n", data->julia_kx, data->julia_ky);
+	ft_printf("New Julia Z value: %f  %f\n", x, y);
+	ft_printf("New Julia Z value: %f  %f\n", data->julia_kx, data->julia_ky);
 }
 
 void	shift_julia_set(t_data *data)

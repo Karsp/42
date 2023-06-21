@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 01:55:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 14:10:42 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:48:21 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -24,6 +24,33 @@ void	move(t_data	*data, char key)
 	{
 		data->min_im += data->center_im * 0.1;
 		data->max_im += data->center_im * 0.1;
+	}
+	if (key == 'R')
+	{
+		data->min_re -= data->center_re * 0.1;
+		data->max_re -= data->center_re * 0.1;
+	}
+	if (key == 'L')
+	{
+		data->min_re += data->center_re * 0.1;
+		data->max_re += data->center_re * 0.1;
+	}
+	return ;
+}
+
+void	move_bonus(t_data	*data, char key)
+{
+	data->center_re = data->min_re - data->max_re;
+	data->center_im = data->min_im - data->max_im;
+	if (key == 'U')
+	{
+		data->min_im += data->center_im * 0.1;
+		data->max_im += data->center_im * 0.1;
+	}
+	if (key == 'D')
+	{
+		data->min_im -= data->center_im * 0.1;
+		data->max_im -= data->center_im * 0.1;
 	}
 	if (key == 'R')
 	{

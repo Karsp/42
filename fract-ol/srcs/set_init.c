@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:07:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/15 18:58:26 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:39:19 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -63,7 +63,7 @@ int	data_init(t_data *data)
 	if (!data->img.mlx_img)
 	{
 		ft_close(data);
-		printf("MLX image creation error.\n");
+		ft_printf("MLX image creation error.\n");
 		return (MLX_ERROR);
 	}
 	data->img.addr = mlx_get_data_addr(data->img.mlx_img, &data->img.bpp, \
