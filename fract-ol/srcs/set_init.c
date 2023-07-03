@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:07:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 17:26:32 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/21 20:38:15 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_fractol.h"
@@ -90,4 +90,3 @@ void	print_help(t_data *data)
 		ft_printf("%s%s%s", F_KEYS1, F_KEYS2, F_KEYS3);
 	}
 }
-
