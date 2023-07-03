@@ -6,18 +6,10 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:43:46 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/06 18:02:27 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:45:08 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libftprintf.h"
-
-int	ft_putchar(char c, int *res)
-{
-	if (write(1, &c, 1) == -1)
-		return (-1);
-	*res = *res + 1;
-	return (*res);
-}
 
 int	ft_chkflag(char const *num_args, va_list *ptr, int *res)
 {
@@ -137,5 +129,4 @@ int	main(void)
 	printf("PO %i\n", res2);
 
 	return (0);
-}
-*/
+}*/

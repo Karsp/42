@@ -6,14 +6,19 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 16:39:43 by daviles-          #+#    #+#              #
-#    Updated: 2023/06/05 12:46:20 by daviles-         ###   ########.fr        #
+#    Updated: 2023/05/19 18:04:47 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SRC = ft_printf.c ft_printf_utils.c 
-
+SRC = ft_printf.c \
+	  ft_putchar.c \
+	  ft_putnbr.c \
+	  ft_putnbrbase.c \
+	  ft_putpointer.c \
+	  ft_putstr.c \
+	  ft_putunsigned.c
 OBJ = $(SRC:.c=.o)
 
 CC	= gcc
