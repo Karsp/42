@@ -16,7 +16,7 @@
 //practice this should not     happen as it means that either dstsize is 
 //incorrect or that dst is not a proper string). If the src and dst strings
 //overlap, the behavior  is undefined.
-// dstsize takes in account the chars that are in dst and the null at the end.
+//dstsize tiene en cuenta los caracteres que hay en dst y el null del final.
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
