@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   isspace.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:02:25 by daviles-         ###   ########.fr       */
+/*   Created: 2023/03/08 12:47:04 by daviles-          #+#    #+#             */
+/*   Updated: 2023/08/30 21:20:55 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include"libft.h"
+//The isspace() function tests for a space type character (tabs,returns, etc.)
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "../libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-
-typedef struct s_stack
+int	ft_isspace(int c)
 {
-	int	value;
-	int	index;
-	int	pos_a;
-	int	pos_b;
-	int dist_to_a;
-	struct	s_stack *prev;
-	struct	s_stack *next;
-} t_stack;
-
-// utils
-int		ft_printerror(char *str);
-//parse
-int		ft_chkstr(char *str);
-int		ft_chknbr(char *str);
-int		ft_chkint(char *str);
-#endif
+	if ((c > 8 && c < 14) || c == 32)
+		return (1);
+	else
+		return (0);
+}

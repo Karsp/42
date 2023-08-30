@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:02:25 by daviles-         ###   ########.fr       */
+/*   Created: 2023/08/30 16:59:09 by daviles-          #+#    #+#             */
+/*   Updated: 2023/08/30 21:01:56 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "../libft/libft.h"
-# include <stdio.h>
-# include <unistd.h>
-
-typedef struct s_stack
+int ft_printerror(char *str)
 {
-	int	value;
-	int	index;
-	int	pos_a;
-	int	pos_b;
-	int dist_to_a;
-	struct	s_stack *prev;
-	struct	s_stack *next;
-} t_stack;
+	ft_putstr_fd("Error :", 2);	
+	ft_putstr_fd(str, 2);	
+	exit(0);
+}
 
-// utils
-int		ft_printerror(char *str);
-//parse
-int		ft_chkstr(char *str);
-int		ft_chknbr(char *str);
-int		ft_chkint(char *str);
-#endif

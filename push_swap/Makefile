@@ -6,15 +6,15 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/07/04 03:01:12 by daviles-         ###   ########.fr        #
+#    Updated: 2023/08/30 17:07:20 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-EXE = fractol
+NAME = push_swap
 
 #########################        LIBS        #################################
 
-EXELIB	=	libftfractol.a
+NAMELIB	=	srcs/push_swap.a
 
 LIB 	=	libft/libft.a
 
@@ -24,8 +24,7 @@ SRC_DIR = srcs
 
 ###########################    FILES   ####################################
 
-SRC = $(addprefix $(SRC_DIR)/, ft_fractol.c set_init.c color.c render.c events.c actions.c \
-	  mandelbrot.c sort.c julia.c burning_ship.c)
+SRC = $(addprefix $(SRC_DIR)/, main.c utils.c parse.c)
 
 OBJ = $(SRC:.c=.o)
 
@@ -33,11 +32,9 @@ OBJ = $(SRC:.c=.o)
 
 CC	= gcc
 
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror #-O3
 
-MLX = -lmlx -framework OpenGL -framework AppKit -L ./mlx
-
-COMP = $(CC) $(CFLAGS) $(LIB) $(MLX)
+COMP = $(CC) $(CFLAGS) $(LIB) 
 
 RM = rm -f
 
@@ -50,16 +47,16 @@ BLUE	=	\033[1;34m
 RED		=	\033[1;31m
 
 
-all : $(EXE)
+all : $(NAME)
 
-$(EXE) : $(OBJ)
+$(NAME) : $(OBJ)
 	$(MAKE) bonus -C ./libft
 	$(COMP) $(OBJ) -o $@
-	@echo "$(GREEN)\nFractol is ready to go!$(NOC)"
+	@echo "$(GREEN)\n Push_Swap is ready to go!$(NOC)"
 	@echo "$(YELLOW)    _       _       _"
 	@echo " __(.)<  __(.)>  __(.)="
 	@echo " \___)   \___)   \___)$(NOC)"
-	@echo "$(GREEN)\nRun ./Fractol to read instructions.\n$(NOC)"
+	@echo "$(GREEN)\nRun ./Push_swap and write your list in one string, or separated by spaces.\n$(NOC)"
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -69,7 +66,7 @@ clean :
 	$(MAKE) fclean -C ./libft
 
 fclean : clean
-	$(RM) $(EXE)
+	$(RM) $(NAME)
 
 re : fclean all
 
