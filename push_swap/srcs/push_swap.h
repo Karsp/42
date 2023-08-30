@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:02:25 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:47:10 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stack
 // utils
 int		ft_printerror(char *str);
 //parse
-int		ft_chkstr(char *str);
+int		ft_chkstr(char **str);
 int		ft_chknbr(char *str);
 int		ft_chkint(char *str);
 #endif

@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:38:03 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:21:05 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:40:51 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -42,15 +42,13 @@ int	ft_chknbr(char *str)
 	return 1;
 }
 
-int	ft_chkstr(char *str)
+int	ft_chkstr(char **nbrs)
 {
 	int 	i;
 	int 	j;
-	char	**nbrs;
 
 	i = 0;
 	j = 0;
-	nbrs = ft_split(str, ' ');
 	if (!*nbrs)
 		ft_printerror("Ivalid or empty input.\n");
 	while (nbrs[i] != '\0')
