@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:47:10 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 02:39:18 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@
 # include "../libft/libft.h"
 # include <stdio.h>
 # include <unistd.h>
+# include <limits.h>
+# include <stdlib.h>
 
 typedef struct s_stack
 {
-	int	value;
-	int	index;
-	int	pos_a;
-	int	pos_b;
-	int dist_to_a;
+	long	value;
+	int		index;
+	int		pos_a;
+	int		pos_b;
+	int 	dist_to_a;
 	struct	s_stack *prev;
 	struct	s_stack *next;
 } t_stack;
@@ -33,5 +35,5 @@ int		ft_printerror(char *str);
 //parse
 int		ft_chkstr(char **str);
 int		ft_chknbr(char *str);
-int		ft_chkint(char *str);
+
 #endif

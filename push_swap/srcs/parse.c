@@ -6,32 +6,38 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:38:03 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:40:51 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 02:37:59 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	ft_chkduplicate(char *str)
+int	ft_chkduplicate(char **str)
 {
-	(void)str;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		j = i + 1;
+		if (ft_atoi(str[i]) == ft_atoi(str[j]))
+			return (ft_printerror("There is duplicated numbers.\n"));
+		i++;
+	}
 	return 1;
 }
 
-int	ft_chkint(char *str)
-{
-	(void)str;
-	return 1;
-}
 int	ft_chknbr(char *str)
 {
-	int	i;
+	int		i;
+	long	aux;
 
 	i = 0;
 	if (str[0] == '+' || str[0] == '-')
 	{
 		i++;
 		if (str[i] == '\0' || (str[i] < '0' || str[i] > '9'))
-			return(ft_printerror("Not a number after sign.\n"));
+			return (ft_printerror("Not a number after sign.\n"));
 	}
 	while (str[i] != '\0' )
 	{
@@ -39,6 +45,9 @@ int	ft_chknbr(char *str)
 			return (ft_printerror("Invalid character.\n"));
 		i++;
 	}
+	aux = ft_atol(str);
+	if (aux > INT_MAX || aux < INT_MIN)
+		return (ft_printerror("Number is too large."));
 	return 1;
 }
 
@@ -53,10 +62,9 @@ int	ft_chkstr(char **nbrs)
 		ft_printerror("Ivalid or empty input.\n");
 	while (nbrs[i] != '\0')
 	{
-		if (ft_chknbr(nbrs[i]))
-			printf("Valid %s\n", nbrs[i]);
+		ft_chknbr(nbrs[i]);
 		i++;
 	}
+	ft_chkduplicate(nbrs);
 	return 1;
 }
-

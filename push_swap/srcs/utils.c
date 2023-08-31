@@ -6,14 +6,14 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:59:09 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:01:56 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 01:54:37 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 int ft_printerror(char *str)
 {
-	ft_putstr_fd("Error :", 2);	
+	ft_putstr_fd("Error: ", 2);	
 	ft_putstr_fd(str, 2);	
 	exit(0);
 }
