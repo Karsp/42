@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:19:11 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 02:42:14 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:22:40 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,11 +26,16 @@ int	main(int argc, char** argv)
 	{
 		nbrs = ft_split(argv[1], ' ');
 		ft_chkstr(nbrs);
+		stack_a = init_stacka(nbrs);
+		ft_freematrix(nbrs);
 	}
 	else
 	{
 		ft_chkstr(argv + 1);
+		stack_a = init_stacka(argv + 1);
 	}
+
+	print_stack(stack_a);
 //	system("leaks push_swap");
 	return 0;
 }

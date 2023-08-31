@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:11:28 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/30 21:16:47 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 01:20:24 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"libft.h"
@@ -15,9 +15,9 @@
 
 long	ft_atol(const char *str)
 {
-	int	c;
-	int	r;
-	int	s;
+	int		c;
+	long	r;
+	long	s;
 
 	c = 0;
 	r = 0;

@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/22 17:55:22 by daviles-          #+#    #+#              #
-#    Updated: 2023/08/30 21:23:02 by daviles-         ###   ########.fr        #
+#    Updated: 2023/08/31 18:28:54 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = ft_isprint.c ft_memmove.c ft_strrchr.c \
 	  ft_memcpy.c ft_strncmp.c ft_strlcat.c \
 	  ft_strnstr.c ft_memcmp.c ft_atoi.c ft_atol.c \
 	  ft_calloc.c ft_strdup.c ft_substr.c \
-	  ft_strjoin.c ft_strtrim.c ft_split.c \
+	  ft_strjoin.c ft_strtrim.c ft_split.c ft_freematrix.c\
 	  ft_itoa.c ft_strmapi.c ft_striteri.c \
 	  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c \
 	  ft_putnbr_fd.c
