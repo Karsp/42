@@ -6,23 +6,24 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 18:23:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 18:27:51 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:48:22 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_freematrix(char **matrix)
+void	ft_freematrix(char ***matrix)
 {
 	int	i;
 
 	i = 0;
-	if (matrix)
+	if (*matrix)
 	{
-		while (matrix[i] != '\0')
+		while ((*matrix)[i] != NULL)
 		{
-			free(matrix[i]);
+			free((*matrix)[i]);
 			i++;
 		}
-		free(matrix);
+		free(*matrix);
+		*matrix = NULL;
 	}
 }

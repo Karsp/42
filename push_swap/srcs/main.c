@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:19:11 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 18:22:40 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 18:42:19 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -27,7 +27,9 @@ int	main(int argc, char** argv)
 		nbrs = ft_split(argv[1], ' ');
 		ft_chkstr(nbrs);
 		stack_a = init_stacka(nbrs);
-		ft_freematrix(nbrs);
+		ft_freematrix(&nbrs); //check why is not working
+		if (nbrs)
+			ft_printf("ASASAS");
 	}
 	else
 	{
