@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 01:58:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 18:17:28 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:23:37 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -46,3 +46,32 @@ int	set_index(char *nbr, char **nbrs)
 	return (index);
 }
 
+t_stack	*chkargs_initstack(int argc, char **argv)
+{
+	t_stack *stack_a;
+	char **nbrs;
+
+	stack_a = NULL;
+	nbrs = NULL;
+	if(argc == 1)
+		exit(0);	
+	else if(argc == 2)
+	{
+		nbrs = ft_split(argv[1], ' ');
+		ft_chkstr(nbrs);
+		stack_a = init_stacka(nbrs);
+		ft_freematrix(&nbrs);
+	}
+	else
+	{
+		ft_chkstr(argv + 1);
+		stack_a = init_stacka(argv + 1);
+	}
+	return (stack_a);
+}
+
+void	main_sort(t_stack *stacka, t_stack *stackb)
+{
+	(void)stacka;
+	(void)stackb;
+}

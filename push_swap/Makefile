@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/08/31 17:18:42 by daviles-         ###   ########.fr        #
+#    Updated: 2023/09/01 02:22:03 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC_DIR = srcs
 
 ###########################    FILES   ####################################
 
-SRC = $(addprefix $(SRC_DIR)/, main.c utils.c parse.c setinit.c)
+SRC = $(addprefix $(SRC_DIR)/, main.c utils.c parse.c setinit.c \
+	  handle_nodes.c moves_swpu.c )
 
 OBJ = $(SRC:.c=.o)
 
@@ -32,7 +33,7 @@ OBJ = $(SRC:.c=.o)
 
 CC	= gcc
 
-CFLAGS = -Wall -Wextra -Werror -O3 -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror #-O3 -fsanitize=address -g3
 
 COMP = $(CC) $(CFLAGS) $(LIB) 
 
@@ -50,7 +51,7 @@ RED		=	\033[1;31m
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(MAKE) bonus -C ./libft
+	$(MAKE) bonus -sC ./libft
 	$(COMP) $(OBJ) -o $@
 	@echo "$(GREEN)\n Push_Swap is ready to go!$(NOC)"
 	@echo "$(YELLOW)    _       _       _"
@@ -63,7 +64,7 @@ $(NAME) : $(OBJ)
 
 clean :
 	$(RM) $(OBJ)
-	$(MAKE) fclean -C ./libft
+	$(MAKE) fclean -sC ./libft
 
 fclean : clean
 	$(RM) $(NAME)

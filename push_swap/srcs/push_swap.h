@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 18:17:52 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:43:11 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,24 @@ typedef struct s_stack
 // utils
 int		ft_printerror(char *str);
 void	print_stack(t_stack *stack);
+// handle_nodes
 t_stack	*node_new(char *nbr);
 t_stack	*node_last(t_stack *stack);
 void	node_addback(t_stack **stack, t_stack *node);
+void	node_addfront(t_stack **stack, t_stack *node);
+int		stack_lenght(t_stack **stack);
 // setinit
+t_stack	*chkargs_initstack(int argc, char **argv);
 t_stack	*init_stacka(char **nbrs);
-int	set_index(char *nbr, char **nbrs);
+void	main_sort(t_stack *stacka, t_stack *stackb);
+int		set_index(char *nbr, char **nbrs);
 // parse
 int		ft_chkstr(char **str);
 int		ft_chknbr(char *str);
 int		ft_chkduplicate(char **str);
-// node handle
-
+// moves
+void	ft_swap(t_stack **stack, char x);
+void	ft_swapab(t_stack **stacka, t_stack **stackb);
+void	ft_pushb(t_stack **stacka, t_stack **stackb);
+void	ft_pusha(t_stack **stacka, t_stack **stackb);
 #endif
