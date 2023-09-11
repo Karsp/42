@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:16:04 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/01 02:08:07 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/11 22:30:13 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -47,7 +47,7 @@ void	node_addback(t_stack **stack, t_stack *node)
 
 t_stack	*node_last(t_stack *stack)
 {
-	if  (!stack)
+	if (!stack)
 		return (0);
 	while (stack->next)
 		stack = stack->next;

@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:38:03 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 17:49:38 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/11 22:31:41 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -28,7 +28,7 @@ int	ft_chkduplicate(char **str)
 		}
 		i++;
 	}
-	return 1;
+	return (1);
 }
 
 int	ft_chknbr(char *str)
@@ -52,13 +52,13 @@ int	ft_chknbr(char *str)
 	aux = ft_atol(str);
 	if (aux > INT_MAX || aux < INT_MIN)
 		return (ft_printerror("Number is too large."));
-	return 1;
+	return (1);
 }
 
 int	ft_chkstr(char **nbrs)
 {
-	int 	i;
-	int 	j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -70,5 +70,5 @@ int	ft_chkstr(char **nbrs)
 		i++;
 	}
 	ft_chkduplicate(nbrs);
-	return 1;
+	return (1);
 }

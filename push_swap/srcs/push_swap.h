@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 19:43:11 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/11 22:33:53 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,15 @@
 
 typedef struct s_stack
 {
-	long	value;
-	int		index;
-	int		pos_a;
-	int		pos_b;
-	int 	dist_to_a;
-	int		size_a;
-	int		size_b;
-	struct	s_stack *prev;
-	struct	s_stack *next;
-} t_stack;
+	long			value;
+	int				index;
+	int				pos_a;
+	int				pos_b;
+	int				dist_to_a;
+	int				size_a;
+	int				size_b;
+	struct s_stack	*next;
+}	t_stack;
 
 // utils
 int		ft_printerror(char *str);
@@ -55,4 +54,8 @@ void	ft_swap(t_stack **stack, char x);
 void	ft_swapab(t_stack **stacka, t_stack **stackb);
 void	ft_pushb(t_stack **stacka, t_stack **stackb);
 void	ft_pusha(t_stack **stacka, t_stack **stackb);
+void	ft_rx(t_stack **stack, char x);
+void	ft_rr(t_stack **stack_a, t_stack **stack_b);
+void	ft_rrx(t_stack **stack, char x);
+void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:59:09 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 19:55:58 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/11 21:59:06 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -27,10 +27,10 @@ void	print_stack(t_stack *stack)
 	{
 		while (aux->next)
 		{
-			ft_printf("Value: %d index: %d prev: %d\n", aux->value, aux->index, aux->prev);
+			ft_printf("Value: %d index: %d next: %d\n", aux->value, aux->index, aux->next);
 			aux = aux->next;
 		}
-		ft_printf("Value: %d index: %d prev: %d\n", aux->value, aux->index, aux->prev);
+		ft_printf("Value: %d index: %d next: %d\n", aux->value, aux->index, aux->next);
 	}
 	else
 		ft_printf("Empty stock\n");

@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:19:11 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 20:06:07 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/11 22:26:39 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -22,7 +22,7 @@ int	main(int argc, char** argv)
 	
 	ft_printf("Before \n");
 	print_stack(stack_a);
-	ft_pushb(&stack_a, &stack_b);
+	ft_rrx(&stack_a,'a');
 	ft_printf("After\n");
 	print_stack(stack_a);
 	ft_printf("B: \n");
@@ -37,12 +37,7 @@ int	main(int argc, char** argv)
 	print_stack(stack_a);
 	ft_printf("B: \n");
 	print_stack(stack_b);
-	ft_pushb(&stack_a, &stack_b);
-	ft_printf("After\n");
-	print_stack(stack_a);
-	ft_printf("B: \n");
-	print_stack(stack_b);
-	ft_pusha(&stack_a, &stack_b);
+	ft_rrr(&stack_a, &stack_b);
 	ft_printf("After\n");
 	print_stack(stack_a);
 	ft_printf("B: \n");
