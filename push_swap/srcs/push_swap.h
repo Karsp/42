@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 22:33:53 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/12 02:27:56 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ t_stack	*node_last(t_stack *stack);
 void	node_addback(t_stack **stack, t_stack *node);
 void	node_addfront(t_stack **stack, t_stack *node);
 int		stack_lenght(t_stack **stack);
+// sort
+int		is_sorted(t_stack *stack);
+void	pushall_lessthree(t_stack **stack_a, t_stack **stack_b);
+void	sort_3(t_stack **stack);
 // setinit
 t_stack	*chkargs_initstack(int argc, char **argv);
 t_stack	*init_stacka(char **nbrs);

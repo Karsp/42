@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 01:58:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 19:23:37 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/12 00:45:40 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -70,8 +70,8 @@ t_stack	*chkargs_initstack(int argc, char **argv)
 	return (stack_a);
 }
 
-void	main_sort(t_stack *stacka, t_stack *stackb)
+void	main_sort(t_stack *stack_a, t_stack *stack_b)
 {
-	(void)stacka;
-	(void)stackb;
+	(void)stack_a;
+	(void)stack_b;
 }

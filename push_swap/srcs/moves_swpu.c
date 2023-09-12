@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:12:43 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 21:38:35 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/12 00:48:12 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -34,60 +34,60 @@ void	ft_swap(t_stack **stack, char x)
 	}
 }
 
-void	ft_swapab(t_stack **stacka, t_stack **stackb)
+void	ft_swapab(t_stack **stack_a, t_stack **stack_b)
 {
-	ft_swap(stacka, 'x');
-	ft_swap(stackb, 'x');
+	ft_swap(stack_a, 'x');
+	ft_swap(stack_b, 'x');
 	ft_printf("ss\n");
 }
 
-void	ft_pushb(t_stack **stacka, t_stack **stackb)
+void	ft_pushb(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*node_a1;
 	t_stack	*node_b1;
 
-	if (*stacka == NULL)
+	if (*stack_a == NULL)
 		return ;
-	node_a1 = *stacka;
-	if ((*stacka)->next)
-		*stacka = (*stacka)->next;
+	node_a1 = *stack_a;
+	if ((*stack_a)->next)
+		*stack_a = (*stack_a)->next;
 	else
-		*stacka = NULL;
-	if (*stackb == NULL)
+		*stack_a = NULL;
+	if (*stack_b == NULL)
 	{
-		*stackb = node_a1;
+		*stack_b = node_a1;
 		node_a1->next = NULL;
 	}
 	else
 	{
-		node_b1 = *stackb;
-		*stackb = node_a1;
+		node_b1 = *stack_b;
+		*stack_b = node_a1;
 		node_a1->next = node_b1;
 	}
 	ft_printf("pb\n");
 }
 
-void	ft_pusha(t_stack **stacka, t_stack **stackb)
+void	ft_pusha(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*node_b1;
 	t_stack	*node_a1;
 
-	if (*stackb != NULL)
+	if (*stack_b != NULL)
 	{
-		node_b1 = *stackb;
-		if ((*stackb)->next)
-			*stackb = (*stackb)->next;
+		node_b1 = *stack_b;
+		if ((*stack_b)->next)
+			*stack_b = (*stack_b)->next;
 		else
-			*stackb = NULL;
-		if (*stacka == NULL)
+			*stack_b = NULL;
+		if (*stack_a == NULL)
 		{
-			*stacka = node_b1;
+			*stack_a = node_b1;
 			node_b1->next = NULL;
 		}
 		else
 		{
-			node_a1 = *stacka;
-			*stacka = node_b1;
+			node_a1 = *stack_a;
+			*stack_a = node_b1;
 			node_b1->next = node_a1;
 		}
 		ft_printf("pa\n");
