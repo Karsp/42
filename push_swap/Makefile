@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/09/12 15:29:21 by daviles-         ###   ########.fr        #
+#    Updated: 2023/09/14 20:13:36 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC_DIR = srcs
 ###########################    FILES   ####################################
 
 SRC = $(addprefix $(SRC_DIR)/, main.c utils.c parse.c setinit.c \
-	  handle_nodes.c moves_swpu.c moves_rr.c sort.c set_position.c )
+	  handle_nodes.c moves_swpu.c moves_rr.c sort.c set_position.c \
+	  set_distance.c)
 
 OBJ = $(SRC:.c=.o)
 

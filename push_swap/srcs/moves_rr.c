@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:14:51 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 22:29:24 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:28:56 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -70,4 +70,27 @@ void	ft_rrr(t_stack **stack_a, t_stack **stack_b)
 	ft_rrx(stack_a, 'x');
 	ft_rrx(stack_b, 'x');
 	ft_printf("rrr\n");
+}
+
+void	ft_loop_rotate(t_stack **stack_a, t_stack **stack_b, int i, char x)
+{
+	while (i)
+	{
+		if (i < 0)
+		{
+			if (x == 'a')
+				ft_rrx(stack_a, 'a');
+			if (x == 'b')
+				ft_rrx(stack_b, 'b');
+			i++;
+		}
+		else
+		{
+			if (x == 'a')
+				ft_rx(stack_a, 'a');
+			if (x == 'b')
+				ft_rx(stack_b, 'b');
+			i--;
+		}
+	}
 }

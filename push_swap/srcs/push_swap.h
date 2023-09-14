@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/12 15:38:29 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:18:08 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ typedef struct s_stack
 	int				index;
 	int				pos;
 	int				target;
-	int				dist_to_a;
-	int				size_a;
-	int				size_b;
+	int				dist_a;
+	int				dist_b;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -45,15 +44,21 @@ int		stack_lenght(t_stack **stack);
 int		is_sorted(t_stack *stack);
 void	pushall_lessthree(t_stack **stack_a, t_stack **stack_b);
 void	sort_3(t_stack **stack);
+void	main_sort(t_stack **stack_a, t_stack **stack_b);
+void	shift_stack(t_stack **stack);
 // setinit
 t_stack	*chkargs_initstack(int argc, char **argv);
 t_stack	*init_stacka(char **nbrs);
-void	main_sort(t_stack *stack_a, t_stack *stack_b);
 int		set_index(char *nbr, char **nbrs);
 // position and target
 void	set_pos_targ(t_stack **stack_a, t_stack **stack_b);
 int		get_target(t_stack **stack_a, int index_b, int t_index, int t_pos);
 void	get_position(t_stack **stack);
+int		get_lowest_index_position(t_stack **stack);
+// distance and move trigger
+void	get_distance(t_stack **stack_a, t_stack **stack_b);
+void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
+void	do_move(t_stack **stack_a, t_stack **stack_b, int dist_a, int dist_b);
 // parse
 int		ft_chkstr(char **str);
 int		ft_chknbr(char *str);
@@ -67,4 +72,5 @@ void	ft_rx(t_stack **stack, char x);
 void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 void	ft_rrx(t_stack **stack, char x);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
+void	ft_loop_rotate(t_stack **stack_a, t_stack **stack_b, int i, char x);
 #endif

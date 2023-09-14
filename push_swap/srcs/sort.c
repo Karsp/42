@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:50:04 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/12 02:38:35 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:12:02 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -82,4 +82,41 @@ void	pushall_lessthree(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
+void	shift_stack(t_stack **stack)
+{
+	int	size;
+	int	lowest_id_pos;
 
+	size = stack_lenght(stack);
+	lowest_id_pos = get_lowest_index_position(stack);
+	if (lowest_id_pos > size / 2)
+	{
+		while (lowest_id_pos < size)
+		{
+			ft_rrx(stack, 'a');
+			lowest_id_pos++;
+		}
+	}
+	else
+	{
+		while (lowest_id_pos > 0)
+		{
+			ft_rx(stack, 'a');
+			lowest_id_pos--;
+		}
+	}
+}
+
+void	main_sort(t_stack **stack_a, t_stack **stack_b)
+{
+	pushall_lessthree(stack_a, stack_b);
+	sort_3(stack_a);
+	while (*stack_b)
+	{
+		set_pos_targ(stack_a, stack_b);
+		get_distance(stack_a, stack_b);
+		do_cheapest_move(stack_a, stack_b);
+	}
+	if (!is_sorted(*stack_a))
+		shift_stack(stack_a);
+}
