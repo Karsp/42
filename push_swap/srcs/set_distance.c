@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:37:59 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:18:10 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:59:56 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -72,10 +72,10 @@ void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b)
 	while (aux_b)
 	{
 		if (ft_absolute_value(aux_b->dist_a) + ft_absolute_value(aux_b->dist_b)
-				< ft_absolute_value(cheapest))
+			< ft_absolute_value(cheapest))
 		{
-			cheapest = ft_absolute_value(aux_b->dist_a) + 
-				ft_absolute_value(aux_b->dist_b);
+		cheapest = ft_absolute_value(aux_b->dist_a) + \
+			ft_absolute_value(aux_b->dist_b);
 			dist_a = aux_b->dist_a;
 			dist_b = aux_b->dist_b;
 		}

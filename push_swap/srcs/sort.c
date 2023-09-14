@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:50:04 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:12:02 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:35:41 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -25,34 +25,6 @@ int	is_sorted(t_stack *stack)
 		aux = aux->next;
 	}
 	return (1);
-}
-
-void	sort_3(t_stack **stack)
-{
-	int	node_3;
-
-	node_3 = (((*stack)->next)->next)->value;
-	if (is_sorted(*stack))
-		return ;
-	if ((*stack)->value > ((*stack)->next)->value)
-			if ((*stack)->value > node_3)
-				if (((*stack)->next)->value < node_3)
-					ft_rx(stack, 'a');
-				else
-				{
-					ft_swap(stack, 'a');
-					ft_rrx(stack, 'a');
-				}
-			else
-				ft_swap(stack, 'a');
-	else
-		if((*stack)->value > node_3)
-			ft_rrx(stack, 'a');
-		else if(((*stack)->next)->value > node_3)
-		{
-			ft_rrx(stack, 'a');
-			ft_swap(stack, 'a');
-		}
 }
 
 void	pushall_lessthree(t_stack **stack_a, t_stack **stack_b)

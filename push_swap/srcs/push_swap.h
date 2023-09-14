@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:21:52 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/15 00:08:24 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 	int				target;
 	int				dist_a;
 	int				dist_b;
+	int				size_start;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -41,22 +42,26 @@ t_stack	*node_last(t_stack *stack);
 void	node_addback(t_stack **stack, t_stack *node);
 void	node_addfront(t_stack **stack, t_stack *node);
 int		stack_lenght(t_stack **stack);
+// sort small
+void	sort_2(t_stack **stack);
+void	sort_3(t_stack **stack);
+void	sort_small(t_stack **stack_a, t_stack **stack_b);
 // sort
 int		is_sorted(t_stack *stack);
 void	pushall_lessthree(t_stack **stack_a, t_stack **stack_b);
-void	sort_3(t_stack **stack);
 void	main_sort(t_stack **stack_a, t_stack **stack_b);
 void	shift_stack(t_stack **stack);
 // setinit
 t_stack	*chkargs_initstack(int argc, char **argv);
 t_stack	*init_stacka(char **nbrs);
 int		set_index(char *nbr, char **nbrs);
-// position and target
+// set position and target
 void	set_pos_targ(t_stack **stack_a, t_stack **stack_b);
 int		get_target(t_stack **stack_a, int index_b, int t_index, int t_pos);
 void	get_position(t_stack **stack);
 int		get_lowest_index_position(t_stack **stack);
-// distance and move trigger
+int		get_higher_index_position(t_stack **stack);
+// set distance and move trigger
 void	get_distance(t_stack **stack_a, t_stack **stack_b);
 void	do_cheapest_move(t_stack **stack_a, t_stack **stack_b);
 void	do_move(t_stack **stack_a, t_stack **stack_b, int dist_a, int dist_b);

@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:32:54 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:13:01 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/15 00:07:41 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -24,6 +24,28 @@ void	get_position(t_stack **stack)
 		aux = aux->next;
 		pos++;
 	}
+}
+
+int	get_higher_index_position(t_stack **stack)
+{
+	t_stack	*aux;
+	int		higher_pos;
+	int		higher_index;
+
+	aux = *stack;
+	get_position(stack);
+	higher_index = INT_MIN;
+	higher_pos = aux->pos;
+	while (aux)
+	{
+		if (aux->index > higher_index)
+		{
+			higher_index = aux->index;
+			higher_pos = aux->pos;
+		}
+		aux = aux->next;
+	}
+	return (higher_pos);
 }
 
 int	get_lowest_index_position(t_stack **stack)

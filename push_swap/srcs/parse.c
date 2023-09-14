@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:38:03 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 22:31:41 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:40:57 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,7 +23,7 @@ int	ft_chkduplicate(char **str)
 		while (str[j] != '\0')
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
-				return (ft_printerror("There is duplicated numbers.\n"));
+				return (ft_printerror("\n"));
 			j++;
 		}
 		i++;
@@ -41,17 +41,17 @@ int	ft_chknbr(char *str)
 	{
 		i++;
 		if (str[i] == '\0' || (str[i] < '0' || str[i] > '9'))
-			return (ft_printerror("Not a number after sign.\n"));
+			return (ft_printerror("\n"));
 	}
 	while (str[i] != '\0' )
 	{
 		if (str[i] < '0' || str[i] > '9')
-			return (ft_printerror("Invalid character.\n"));
+			return (ft_printerror("\n"));
 		i++;
 	}
 	aux = ft_atol(str);
 	if (aux > INT_MAX || aux < INT_MIN)
-		return (ft_printerror("Number is too large."));
+		return (ft_printerror("\n"));
 	return (1);
 }
 
@@ -63,7 +63,7 @@ int	ft_chkstr(char **nbrs)
 	i = 0;
 	j = 0;
 	if (!*nbrs)
-		ft_printerror("Ivalid or empty input.\n");
+		ft_printerror("\n");
 	while (nbrs[i] != '\0')
 	{
 		ft_chknbr(nbrs[i]);

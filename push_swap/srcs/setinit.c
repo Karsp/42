@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 01:58:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 19:52:06 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 23:28:25 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -27,6 +27,7 @@ t_stack	*init_stacka(char **nbrs)
 		node_addback(&stack, node);
 		i++;
 	}
+	stack->size_start = i;
 	return (stack);
 }
 
@@ -48,14 +49,14 @@ int	set_index(char *nbr, char **nbrs)
 
 t_stack	*chkargs_initstack(int argc, char **argv)
 {
-	t_stack *stack_a;
-	char **nbrs;
+	t_stack	*stack_a;
+	char	**nbrs;
 
 	stack_a = NULL;
 	nbrs = NULL;
-	if(argc == 1)
-		exit(0);	
-	else if(argc == 2)
+	if (argc == 1)
+		exit(0);
+	else if (argc == 2)
 	{
 		nbrs = ft_split(argv[1], ' ');
 		ft_chkstr(nbrs);
