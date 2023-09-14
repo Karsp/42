@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 16:59:09 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/12 15:30:09 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:21:30 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -16,6 +16,21 @@ int ft_printerror(char *str)
 	ft_putstr_fd("Error: ", 2);	
 	ft_putstr_fd(str, 2);	
 	exit(0);
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
 }
 
 void	print_stack(t_stack *stack)

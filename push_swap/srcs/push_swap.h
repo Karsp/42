@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:18:08 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:21:52 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_stack
 int		ft_printerror(char *str);
 void	print_stack(t_stack *stack);
 void	print_stack_tg(t_stack *stack);
+void	free_stack(t_stack **stack);
 // handle_nodes
 t_stack	*node_new(char *nbr);
 t_stack	*node_last(t_stack *stack);
