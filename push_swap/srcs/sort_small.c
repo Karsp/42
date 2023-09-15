@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 23:33:33 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/15 00:10:41 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/15 03:38:22 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -30,11 +30,58 @@ void	sort_3(t_stack **stack)
 		ft_swap(stack, 'a');
 }
 
+void	sort_4(t_stack	**stack_a, t_stack **stack_b)
+{
+	int	smaller;
+
+	smaller = get_lowest_index_position(stack_a);
+	if (smaller > 1)
+		while (smaller < 4)
+		{
+			ft_rrx(stack_a, 'a');
+			smaller++;
+		}
+	else if (smaller < 2)
+		while (smaller > 0)
+		{
+			ft_rx(stack_a, 'a');
+			smaller--;
+		}
+	ft_pushb(stack_a, stack_b);
+	sort_3(stack_a);
+	ft_pusha(stack_a, stack_b);
+}
+
+void	sort_5(t_stack	**stack_a, t_stack **stack_b)
+{
+	int	smaller;
+
+	smaller = get_lowest_index_position(stack_a);
+	if (smaller > 1)
+		while (smaller < 5)
+		{
+			ft_rrx(stack_a, 'a');
+			smaller++;
+		}
+	else if (smaller < 2)
+		while (smaller > 0)
+		{
+			ft_rx(stack_a, 'a');
+			smaller--;
+		}
+	ft_pushb(stack_a, stack_b);
+	sort_4(stack_a, stack_b);
+	ft_pusha(stack_a, stack_b);
+}
+
 void	sort_small(t_stack **stack_a, t_stack **stack_b)
 {
 	if ((*stack_a)->size_start == 2)
 		sort_2(stack_a);
 	if ((*stack_a)->size_start == 3)
 		sort_3(stack_a);
-	(void)stack_b;
+	if ((*stack_a)->size_start == 4)
+		sort_4(stack_a, stack_b);
+	if ((*stack_a)->size_start == 5)
+		sort_5(stack_a, stack_b);
 }

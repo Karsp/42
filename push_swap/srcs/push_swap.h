@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/15 00:08:24 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/15 02:39:28 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int		stack_lenght(t_stack **stack);
 // sort small
 void	sort_2(t_stack **stack);
 void	sort_3(t_stack **stack);
+void	sort_4(t_stack	**stack_a, t_stack **stack_b);
+void	sort_5(t_stack	**stack_a, t_stack **stack_b);
 void	sort_small(t_stack **stack_a, t_stack **stack_b);
 // sort
 int		is_sorted(t_stack *stack);
