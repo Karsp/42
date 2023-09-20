@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:12:49 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:16:11 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:47:16 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -24,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-long    ft_absolute_value(long nbr);
+long	ft_absolute_value(long nbr);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

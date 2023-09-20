@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 01:58:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 23:28:25 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:45:50 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -47,10 +47,35 @@ int	set_index(char *nbr, char **nbrs)
 	return (index);
 }
 
+char	*argv_tostr(char **argv)
+{
+	char	*str;
+	char	*aux;
+	int		i;
+
+	str = (char *)malloc(1);
+	if (!str)
+		return (NULL);
+	str[0] = '\0';
+	i = 1;
+	while (argv[i])
+	{
+		aux = ft_strjoin(str, argv[i]);
+		free(str);
+		str = aux;
+		aux = ft_strjoin(str, " ");
+		free(str);
+		str = aux;
+		i++;
+	}
+	return (str);
+}
+
 t_stack	*chkargs_initstack(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	char	**nbrs;
+	char	*str;
 
 	stack_a = NULL;
 	nbrs = NULL;
@@ -65,8 +90,12 @@ t_stack	*chkargs_initstack(int argc, char **argv)
 	}
 	else
 	{
-		ft_chkstr(argv + 1);
-		stack_a = init_stacka(argv + 1);
+		str = argv_tostr(argv);
+		nbrs = ft_split(str, ' ');
+		free(str);
+		ft_chkstr(nbrs);
+		stack_a = init_stacka(nbrs);
+		ft_freematrix(&nbrs);
 	}
 	return (stack_a);
 }
