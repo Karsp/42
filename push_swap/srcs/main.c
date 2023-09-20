@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 22:19:11 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/15 03:10:36 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:52:00 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -23,8 +23,6 @@ int	main(int argc, char **argv)
 		sort_small(&stack_a, &stack_b);
 	else
 		main_sort(&stack_a, &stack_b);
-	if (is_sorted(stack_a))
-		ft_printf("SORTED\n");
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);

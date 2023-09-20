@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:32:54 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/15 00:07:41 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:26:00 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -84,7 +84,7 @@ int	get_target(t_stack **stack_a, int index_b, int t_index, int t_pos)
 		}
 		aux_a = aux_a->next;
 	}
-	if (t_pos != INT_MAX)
+	if (t_index != INT_MAX)
 		return (t_pos);
 	aux_a = *stack_a;
 	while (aux_a)

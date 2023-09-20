@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 23:50:04 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 23:35:41 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:55:51 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -36,9 +36,9 @@ void	pushall_lessthree(t_stack **stack_a, t_stack **stack_b)
 	size = stack_lenght(stack_a);
 	i = 0;
 	pushed = 0;
-	while (i < size && pushed < size / 2 && size > 6)
+	while (i < size && pushed < (size / 2))
 	{
-		if ((*stack_a)->value <= size / 2)
+		if ((*stack_a)->index <= size / 2)
 		{
 			ft_pushb(stack_a, stack_b);
 			pushed++;
