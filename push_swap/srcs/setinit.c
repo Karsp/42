@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 01:58:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/20 18:45:50 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/29 00:10:14 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -61,9 +61,13 @@ char	*argv_tostr(char **argv)
 	while (argv[i])
 	{
 		aux = ft_strjoin(str, argv[i]);
+		if (!aux)
+			return (free(str));
 		free(str);
 		str = aux;
 		aux = ft_strjoin(str, " ");
+		if (!aux)
+			return (free(str));
 		free(str);
 		str = aux;
 		i++;

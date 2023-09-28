@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 19:16:04 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/11 23:47:55 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/20 22:21:39 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -57,7 +57,7 @@ t_stack	*node_new(char *nbr)
 
 	new_node = (t_stack *) malloc (sizeof (t_stack));
 	if (!new_node)
-		ft_printerror("On Malloc.");
+		ft_printerror("\n");
 	new_node->value = ft_atoi(nbr);
 	new_node->next = NULL;
 	return (new_node);

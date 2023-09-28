@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 23:33:33 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/20 17:59:09 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/29 00:05:01 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -51,6 +51,8 @@ void	sort_4(t_stack	**stack_a, t_stack **stack_b)
 			smaller--;
 		}
 	}
+	if (is_sorted(*stack_a))
+		return ;
 	ft_pushb(stack_a, stack_b);
 	sort_3(stack_a);
 	ft_pusha(stack_a, stack_b);
@@ -77,6 +79,8 @@ void	sort_5(t_stack	**stack_a, t_stack **stack_b)
 			smaller--;
 		}
 	}
+	if (is_sorted(*stack_a))
+		return ;
 	ft_pushb(stack_a, stack_b);
 	sort_4(stack_a, stack_b);
 	ft_pusha(stack_a, stack_b);
