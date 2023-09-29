@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/09/29 02:07:39 by daviles-         ###   ########.fr        #
+#    Updated: 2023/09/29 16:05:22 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,8 @@ UTILS_BONUS = $(addprefix $(SRC_DIR)/, utils.c parse.c setinit.c \
 	  handle_nodes.c moves_swpu.c moves_rr.c sort.c set_position.c \
 	  set_distance.c sort_small.c)
 
-SRC_BONUS = ./bonus/checker.c
+SRC_BONUS = ./bonus/checker.c ./bonus/moves_rr_bonus.c \
+			./bonus/moves_swpu_bonus.c
 
 OBJS_BONUS = $(UTILS_BONUS:.c=.o) $(SRC_BONUS:.c=.o)
 
