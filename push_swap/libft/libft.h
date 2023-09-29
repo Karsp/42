@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:12:49 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/20 18:47:16 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/29 02:03:51 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -17,6 +17,7 @@
 # include<stdio.h>
 # include<unistd.h>
 # include"ft_printf/libftprintf.h"
+# include"gnl/get_next_line.h"
 
 typedef struct s_list
 {

@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/22 17:55:22 by daviles-          #+#    #+#              #
-#    Updated: 2023/09/14 16:43:50 by daviles-         ###   ########.fr        #
+#    Updated: 2023/09/29 01:52:55 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,9 @@ BSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c \
 
 PRINTF	=	./ft_printf/ft_printf.c ./ft_printf/ft_printf_utils.c
 
-OBJ = $(SRC:.c=.o) $(PRINTF:.c=.o)
+GNL = ./gnl/get_next_line.c ./gnl/get_next_line_utils.c
+
+OBJ = $(SRC:.c=.o) $(PRINTF:.c=.o) $(GNL:.c=.o)
 
 BOBJ = $(BSRC:.c=.o)
 
@@ -53,7 +55,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(INCLUDE)
 	$(AR) $(NAME) $(OBJ)
-
 
 bonus :	$(OBJ) $(BOBJ) 
 	$(AR) -r $(NAME) $?
