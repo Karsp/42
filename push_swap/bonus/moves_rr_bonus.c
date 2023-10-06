@@ -6,10 +6,10 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:14:51 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/29 16:06:39 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/06 21:35:59 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../srcs/push_swap.h"
+#include"push_swap_bonus.h"
 
 void	ft_b_rx(t_stack **stack, char x)
 {

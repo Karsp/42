@@ -6,10 +6,10 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 01:09:54 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/05 15:35:55 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/06 21:23:32 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"../srcs/push_swap.h"
+#include"push_swap_bonus.h"
 
 void	checker_mov(t_stack **stack_a, t_stack **stack_b, char *line, int len)
 {

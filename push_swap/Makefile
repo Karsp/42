@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/09/29 16:05:22 by daviles-         ###   ########.fr        #
+#    Updated: 2023/10/06 21:42:55 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ NAME_BONUS = checker
 
 NAMELIB	=	srcs/push_swap.a
 
+BONUSLIB	=	bonus/push_swap_bonus.a
+
 LIB 	=	libft/libft.a
 
 ##########################    DIRS     ####################################
@@ -26,23 +28,22 @@ SRC_DIR = srcs
 
 ###########################    FILES   ####################################
 
-SRC = $(addprefix $(SRC_DIR)/, main.c utils.c parse.c setinit.c \
+MAIN = $(addprefix $(SRC_DIR)/, main.c)
+
+SRC = $(addprefix $(SRC_DIR)/, utils.c parse.c setinit.c \
 	  handle_nodes.c moves_swpu.c moves_rr.c sort.c set_position.c \
 	  set_distance.c sort_small.c)
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(MAIN:.c=.o) $(SRC:.c=.o)
 
 
 ##########################   FILES BONUS   ################################
 
-UTILS_BONUS = $(addprefix $(SRC_DIR)/, utils.c parse.c setinit.c \
-	  handle_nodes.c moves_swpu.c moves_rr.c sort.c set_position.c \
-	  set_distance.c sort_small.c)
+MAIN_BONUS = ./bonus/main_bonus.c 
 
-SRC_BONUS = ./bonus/checker.c ./bonus/moves_rr_bonus.c \
-			./bonus/moves_swpu_bonus.c
+SRC_BONUS = ./bonus/moves_rr_bonus.c ./bonus/moves_swpu_bonus.c
 
-OBJS_BONUS = $(UTILS_BONUS:.c=.o) $(SRC_BONUS:.c=.o)
+OBJS_BONUS = $(MAIN_BONUS:.c=.o) $(SRC_BONUS:.c=.o) $(SRC:.c=.o)
 
 ##########################   COMPILING SETTINGS   #########################
 

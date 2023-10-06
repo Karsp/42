@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 20:13:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/05 15:35:57 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/06 21:39:49 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,5 @@ void	ft_rr(t_stack **stack_a, t_stack **stack_b);
 void	ft_rrx(t_stack **stack, char x);
 void	ft_rrr(t_stack **stack_a, t_stack **stack_b);
 void	ft_loop_rotate(t_stack **stack_a, t_stack **stack_b, int i, char x);
-// moves bonus
-void	ft_b_swap(t_stack **stack, char x);
-void	ft_b_swapab(t_stack **stack_a, t_stack **stack_b);
-void	ft_b_pushb(t_stack **stack_a, t_stack **stack_b);
-void	ft_b_pusha(t_stack **stack_a, t_stack **stack_b);
-void	ft_b_rx(t_stack **stack, char x);
-void	ft_b_rr(t_stack **stack_a, t_stack **stack_b);
-void	ft_b_rrx(t_stack **stack, char x);
-void	ft_b_rrr(t_stack **stack_a, t_stack **stack_b);
-// bonus functions
-void	get_do_moves(t_stack **stack_a, t_stack **stack_b);
-void	checker_mov(t_stack **stack_a, t_stack **stack_b, char *line, int len);
 
 #endif
