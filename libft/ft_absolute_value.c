@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_freematrix.c                                    :+:      :+:    :+:   */
+/*   ft_absolute_value.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/31 18:23:20 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 18:48:22 by daviles-         ###   ########.fr       */
+/*   Created: 2023/09/14 16:42:51 by daviles-          #+#    #+#             */
+/*   Updated: 2023/09/20 18:47:00 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_freematrix(char ***matrix)
+long	ft_absolute_value(long nbr)
 {
-	int	i;
-
-	i = 0;
-	if (*matrix)
-	{
-		while ((*matrix)[i] != NULL)
-		{
-			free((*matrix)[i]);
-			i++;
-		}
-		free(*matrix);
-		*matrix = NULL;
-	}
+	if (nbr < 0)
+		return (nbr * (-1));
+	else
+		return (nbr);
 }

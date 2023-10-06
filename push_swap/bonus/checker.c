@@ -6,12 +6,12 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 01:09:54 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/29 16:02:39 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/05 15:35:55 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include"../srcs/push_swap.h"
 
-void	do_checker_moves(t_stack **stack_a, t_stack **stack_b, char *line, int len)
+void	checker_mov(t_stack **stack_a, t_stack **stack_b, char *line, int len)
 {
 	if (!ft_strncmp(line, "ra", len - 1))
 		ft_b_rx(stack_a, 'a');
@@ -43,11 +43,12 @@ void	get_do_moves(t_stack **stack_a, t_stack **stack_b)
 {
 	char	*line;
 	int		len;
+
 	line = get_next_line(0);
 	while (line)
 	{
 		len = ft_strlen(line);
-		do_checker_moves(stack_a, stack_b, line, len);
+		checker_mov(stack_a, stack_b, line, len);
 		free(line);
 		line = get_next_line(0);
 	}

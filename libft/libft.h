@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 17:12:49 by daviles-          #+#    #+#             */
-/*   Updated: 2023/08/31 18:28:33 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:47:16 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -24,6 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+long	ft_absolute_value(long nbr);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -48,7 +49,7 @@ int		ft_toupper(int c);
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);
 void	*ft_calloc(size_t count, size_t size);
-void	ft_freematrix(char **matrix);
+void	ft_freematrix(char ***matrix);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
