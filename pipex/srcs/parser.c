@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 02:39:08 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/12 22:55:04 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/12 23:13:48 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/pipex.h"
@@ -43,23 +43,33 @@ char	*get_pathwithcmd(char *cmd, char **env)
 	char	*cmd_path;
 
 	i = check_path(env);
-	if (!env[i])
-		return (NULL);
-	paths = ft_split(env[i] + 5, ':');
+	if (!env[i] || !env)
+		return ("./");
+	else
+		paths = ft_split(env[i] + 5, ':');
 	i = 0;
 	while (paths[i])
 	{
 		path = ft_strjoin(paths[i], "/");
 		cmd_path = ft_strjoin(path, cmd);
-		free(path);
 		if (access(cmd_path, X_OK) == 0)
-		{
-			free(paths);
-			return (cmd_path);
-		}
+			return (free(paths), cmd_path);
 		free(cmd_path);
+		free(path);
 		i++;
 	}
-	ft_freematrix(&paths);
-	return (NULL);
+	return (ft_freematrix(&paths), NULL);
 }
+/*
+char	*get_path(char *cmd, char **env)
+{
+	char	*cmd;
+	char	**cmds;
+
+	cmds = ft_split(av[2], ' ');
+	if (check_route(cmds[0]) == 1)
+		cmd = cmds[0];
+	else
+		cmd = get_path(cmds[0], env);
+	return (cmd);
+}*/
