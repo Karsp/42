@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 15:38:03 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/14 20:40:57 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/12 01:58:40 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -17,10 +17,10 @@ int	ft_chkduplicate(char **str)
 	int	j;
 
 	i = 0;
-	while (str[i] != '\0' )
+	while (str[i] != NULL)
 	{
 		j = i + 1;
-		while (str[j] != '\0')
+		while (str[j] != NULL)
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
 				return (ft_printerror("\n"));
@@ -64,7 +64,7 @@ int	ft_chkstr(char **nbrs)
 	j = 0;
 	if (!*nbrs)
 		ft_printerror("\n");
-	while (nbrs[i] != '\0')
+	while (nbrs[i] != NULL)
 	{
 		ft_chknbr(nbrs[i]);
 		i++;

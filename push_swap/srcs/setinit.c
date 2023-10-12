@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 01:58:07 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/29 00:16:14 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/12 02:06:37 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -20,7 +20,7 @@ t_stack	*init_stacka(char **nbrs)
 	stack = NULL;
 	node = NULL;
 	i = 0;
-	while (nbrs[i] != '\0')
+	while (nbrs[i] != NULL)
 	{
 		node = node_new(nbrs[i]);
 		node->index = set_index(nbrs[i], nbrs);
@@ -38,7 +38,7 @@ int	set_index(char *nbr, char **nbrs)
 
 	i = 0;
 	index = 0;
-	while (nbrs[i] != '\0')
+	while (nbrs[i] != NULL)
 	{
 		if (ft_atoi(nbr) >= ft_atoi(nbrs[i]))
 			index++;
