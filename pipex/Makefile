@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/10/12 01:48:39 by daviles-         ###   ########.fr        #
+#    Updated: 2023/10/12 03:39:26 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_DIR = srcs
 
 ###########################    FILES   ####################################
 
-SRC = $(addprefix $(SRC_DIR)/, main.c pipex.c childs.c utils.c)
+SRC = $(addprefix $(SRC_DIR)/, main.c pipex.c childs.c utils.c parser.c)
 
 OBJ = $(SRC:.c=.o)
 
