@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 02:25:36 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/12 23:13:06 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/13 03:09:05 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/pipex.h"
@@ -18,32 +18,22 @@ void	child_input(int *m_fd, char **av, char **env)
 	char	*cmd;
 	char	**cmds;
 
-	cmds = ft_split(av[2], ' ');
-	if (check_route(cmds[0]) == 1)
-		cmd = cmds[0];
-	else
-		cmd = get_pathwithcmd(cmds[0], env);
+	cmd = getcmd_withpath(av[2], &cmds, env);
 	pid = fork();
 	if (pid < 0)
-	{
-		perror("Fork error");
-		exit(1);
-	}
+		ft_perror_exit("Fork error");
 	else if (pid == 0)
 	{
 		fd_in = open(av[1], O_RDONLY);
 		if (fd_in < 0)
-		{
-			perror(av[1]);
-			exit(1);
-		}
+			ft_perror_exit(av[1]);
 		dup2(fd_in, STDIN_FILENO);
 		dup2(m_fd[1], STDOUT_FILENO);
 		close(m_fd[0]);
 		close(m_fd[1]);
+		close(fd_in);
 		execve(cmd, cmds, env);
-		perror(cmd);
-		exit(1);
+		ft_perror_exit(cmds[0]);
 	}
 }
 
@@ -54,32 +44,22 @@ pid_t	child_output(int *m_fd, char **av, char **env)
 	char	*cmd;
 	char	**cmds;
 
-	cmds = ft_split(av[3], ' ');
-	if (check_route(cmds[0]) == 1)
-		cmd = cmds[0];
-	else
-		cmd = get_pathwithcmd(cmds[0], env);
+	cmd = getcmd_withpath(av[3], &cmds, env);
 	pid = fork();
 	if (pid < 0)
-	{
-		perror("Fork error");
-		exit(1);
-	}
+		ft_perror_exit("Fork error");
 	else if (pid == 0)
 	{
 		fd_out = open(av[4], O_WRONLY | O_CREAT | O_TRUNC, 0666);
 		if (fd_out < 0)
-		{
-			perror(av[4]);
-			exit(1);
-		}
+			ft_perror_exit(av[4]);
 		dup2(m_fd[0], STDIN_FILENO);
 		dup2(fd_out, STDOUT_FILENO);
 		close(m_fd[0]);
 		close(m_fd[1]);
+		close(fd_out);
 		execve(cmd, cmds, env);
-		perror(cmd);
-		exit(1);
+		ft_perror_exit(cmds[0]);
 	}
 	return (pid);
 }
