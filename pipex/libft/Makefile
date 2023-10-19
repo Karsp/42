@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/22 17:55:22 by daviles-          #+#    #+#              #
-#    Updated: 2023/09/29 01:52:55 by daviles-         ###   ########.fr        #
+#    Updated: 2023/10/19 13:39:10 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ all : $(NAME)
 $(NAME) : $(OBJ) $(INCLUDE)
 	$(AR) $(NAME) $(OBJ)
 
-bonus :	$(OBJ) $(BOBJ) 
+bonus :	$(OBJ) $(BOBJ)  
 	$(AR) -r $(NAME) $?
 
 %.o : %.c

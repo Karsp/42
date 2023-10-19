@@ -6,15 +6,19 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/10/12 03:39:26 by daviles-         ###   ########.fr        #
+#    Updated: 2023/10/19 20:16:09 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pipex
 
+NAME_BONUS = pipex_bonus
+
 #########################        LIBS        #################################
 
 NAMELIB	=	include/pipex.a
+
+BONUSLIB	= include/pipex_bonus.a
 
 LIB 	=	libft/libft.a
 
@@ -24,18 +28,25 @@ SRC_DIR = srcs
 
 ###########################    FILES   ####################################
 
-SRC = $(addprefix $(SRC_DIR)/, main.c pipex.c childs.c utils.c parser.c)
+MAIN = $(addprefix $(SRC_DIR)/, main.c)
 
-OBJ = $(SRC:.c=.o)
+SRC = $(addprefix $(SRC_DIR)/, pipex.c childs.c utils.c parser.c)
+
+OBJ = $(SRC:.c=.o) $(MAIN:.c=.o)
 
 ##########################   FILES BONUS   ################################
 
+MAIN_BONUS = ./bonus/main_bonus.c
+
+SRC_BONUS = ./bonus/pipex_bonus.c ./bonus/childs_bonus.c
+
+OBJS_BONUS = $(MAIN_BONUS:.c=.o) $(SRC_BONUS:.c=.o) $(SRC:.c=.o)
 
 ##########################   COMPILING SETTINGS   #########################
 
 CC	= gcc
 
-CFLAGS = -Wall -Wextra -Werror #-O3 -fsanitize=address -g3
+CFLAGS = -Wall -Wextra -Werror -O3 -fsanitize=address -g3
 
 COMP = $(CC) $(CFLAGS) $(LIB) 
 
@@ -60,11 +71,17 @@ $(NAME) : $(OBJ)
 	@echo " \___)   \___)   \___)$(NOC)"
 	@echo "$(GREEN)\nProgram is ready to use! Run ./pipex to see instructions.\n$(NOC)"
 
+bonus : $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJS_BONUS)
+	$(MAKE) bonus -sC ./libft
+	$(COMP) $(OBJS_BONUS) -o $@
+
 %.o : %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean :
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) $(OBJS_BONUS)
 	$(MAKE) fclean -sC ./libft
 
 fclean : clean

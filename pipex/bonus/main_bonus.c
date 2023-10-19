@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/12 01:47:01 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/19 12:41:03 by daviles-         ###   ########.fr       */
+/*   Created: 2023/10/06 21:08:33 by daviles-          #+#    #+#             */
+/*   Updated: 2023/10/19 19:43:21 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "../include/pipex.h"
+#include "../include/pipex_bonus.h"
 
-void	ft_pipex(char **av, char **env)
+int	main(int ac, char **av, char **env)
 {
-	int		main_fd[2];
-	pid_t	pid;
-
-	pipe(main_fd);
-	child_input(main_fd, av, env);
-	pid = child_output(main_fd, av, env);
-	close(main_fd[0]);
-	close(main_fd[1]);
-	ft_waitpid(pid);
+	ft_pipex_bonus(ac, av, env);
+/*	if (ac == 5)
+	{
+		ft_pipex(av, env);
+	}
+	else
+		ft_printf("Invalid args. Follow this example:\n \
+	./pipex archivo1 comando1 comando2 archivo2\n");
+	*/
+	close(0);
+	return (0);
 }
