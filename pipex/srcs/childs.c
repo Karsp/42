@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 02:25:36 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/19 19:04:52 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:51:07 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/pipex.h"
@@ -37,7 +37,7 @@ void	child_input(int *m_fd, char **av, char **env)
 	}
 }
 
-pid_t	child_output(int *m_fd, char **av, char **env)
+void	child_output(int *m_fd, char **av, char **env)
 {
 	int		pid;
 	int		fd_out;
@@ -61,5 +61,5 @@ pid_t	child_output(int *m_fd, char **av, char **env)
 		execve(cmd, cmds, env);
 		ft_perror_exit(cmds[0]);
 	}
-	return (pid);
+	waitpid(pid, NULL, 0);
 }

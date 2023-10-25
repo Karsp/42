@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:12:00 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/25 22:41:14 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:40:10 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/pipex_bonus.h"
@@ -68,7 +68,7 @@ void	process_middle(int	*main_pipe, int ac, char **av, char **env)
 		old_pipe[1] = new_pipe[1];
 		i++;
 	}
-	child_output_bonus(old_pipe, av[ac - 2], av[ac - 1], env);
+	child_output_bonus(old_pipe, av, ac, env);
 }
 
 void	child_middle(int *new_pipe, int *old_pipe, char *av, char **env)
@@ -87,7 +87,7 @@ void	child_middle(int *new_pipe, int *old_pipe, char *av, char **env)
 	ft_perror_exit(cmds[0]);
 }
 
-void	child_output_bonus(int *main_pipe, char *av, char *av_out, char **env)
+void	child_output_bonus(int *main_pipe, char **av, int ac, char **env)
 {
 	int		pid;
 	int		fd_out;
@@ -99,21 +99,21 @@ void	child_output_bonus(int *main_pipe, char *av, char *av_out, char **env)
 		ft_perror_exit("Fork error");
 	else if (pid == 0)
 	{
-		cmd = getcmd_withpath(av, &cmds, env);
-		fd_out = open(av_out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
-//		fd_out = open(av_out, O_RDWR | O_CREAT | O_APPEND, 0666);
+		cmd = getcmd_withpath(av[ac - 2], &cmds, env);
+		if (!ft_strncmp(av[1], "here_doc", 9))
+			fd_out = open(av[ac - 1], O_RDWR | O_CREAT | O_APPEND, 0666);
+		else
+			fd_out = open(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0666);
 		if (fd_out < 0)
-			ft_perror_exit(av_out);
+			ft_perror_exit(av[ac - 1]);
 		dup2(main_pipe[0], STDIN_FILENO);
 		dup2(fd_out, STDOUT_FILENO);
-		close(main_pipe[0]);
-		close(main_pipe[1]);
+		ft_close(main_pipe[0], main_pipe[1]);
 		close(fd_out);
 		execve(cmd, cmds, env);
 		ft_perror_exit(cmds[0]);
 	}
 	waitpid(pid, NULL, 0);
-	close(main_pipe[0]);
 }
 
 void	ft_heredoc(int *main_pipe, char **av, int ac, char **env)

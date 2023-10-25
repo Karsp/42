@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:09:35 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/13 01:31:35 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/25 23:52:38 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@
 void	ft_pipex(char **av, char **env);
 // childs
 void	child_input(int *fdp, char **av, char **env);
-pid_t	child_output(int *fdp, char **av, char **env);
+void	child_output(int *fdp, char **av, char **env);
 // utils
-void	ft_waitpid(pid_t out_pid);
 void	ft_perror_exit(char *msj);
 // parser
 int		check_route(char *av);
