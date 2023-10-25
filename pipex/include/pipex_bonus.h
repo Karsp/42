@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:09:35 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/19 18:17:38 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/25 15:42:26 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 void	ft_pipex_bonus(int ac, char **av, char **env);
 // childs
 void	child_input_bonus(int *m_fd, char *av, char *av_in, char **env);
-pid_t	child_output_bonus(int *m_fd, char *av, char *av_out, char **env);
-void	child_middle(int *fd, char *av, char **env);
+void	child_output_bonus(int *m_fd, char *av, char *av_out, char **env);
+void	child_middle(int *new_fd, int *old_fd, char *av, char **env);
+void	process_middle(int	*main_pipe, int ac, char **av, char **env);
+void	ft_heredoc(int *main_pipe, char **av, char **env);
 // utils
 // parser
 
