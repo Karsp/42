@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:12:00 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/25 16:15:59 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:41:14 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/pipex_bonus.h"
@@ -48,6 +48,8 @@ void	process_middle(int	*main_pipe, int ac, char **av, char **env)
 	int	i;
 
 	i = 3;
+	if (!ft_strncmp(av[1], "here_doc", 9))
+		i = 4;
 	old_pipe[0] = main_pipe[0];
 	old_pipe[1] = main_pipe[1];
 	while (i < ac - 2)
@@ -99,6 +101,7 @@ void	child_output_bonus(int *main_pipe, char *av, char *av_out, char **env)
 	{
 		cmd = getcmd_withpath(av, &cmds, env);
 		fd_out = open(av_out, O_WRONLY | O_CREAT | O_TRUNC, 0666);
+//		fd_out = open(av_out, O_RDWR | O_CREAT | O_APPEND, 0666);
 		if (fd_out < 0)
 			ft_perror_exit(av_out);
 		dup2(main_pipe[0], STDIN_FILENO);
@@ -113,22 +116,28 @@ void	child_output_bonus(int *main_pipe, char *av, char *av_out, char **env)
 	close(main_pipe[0]);
 }
 
-void	ft_heredoc(int *main_pipe, char **av, char **env)
+void	ft_heredoc(int *main_pipe, char **av, int ac, char **env)
 {
 	char	*line;
-	char	*aux;
-	char	*args;
+	int		fd_in;
 
+	(void)ac;
+	fd_in = open(".heredoc", O_RDWR | O_CREAT | O_TRUNC, 0666);
+	if (fd_in == -1)
+		ft_perror_exit("Pipe error");
 	while (1)
 	{
+		write(1, "heredoc> ", 9);
 		line = get_next_line(0);
-		if (!ft_strncmp(line, av[2], ft_strlen(av[2])))
+		if (line == 0)
 			break ;
-		aux = args;
-		args = ft_strjoin(args, line);
+		if (!ft_strncmp(line, av[2], ft_strlen(av[2]))
+				&& (ft_strlen(av[2]) + 1) == ft_strlen(line))
+			break ;
+		write(fd_in, line, ft_strlen(line));
 		free(line);
-		free(aux);
 	}
-	ft_printf("%s\n", args);
-	child_input_bonus(main_pipe, av[2], args, env);
+	free(line);
+	close(fd_in);
+	child_input_bonus(main_pipe, av[3], ".heredoc", env);
 }

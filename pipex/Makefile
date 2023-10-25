@@ -6,7 +6,7 @@
 #    By: daviles- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/21 14:00:44 by daviles-          #+#    #+#              #
-#    Updated: 2023/10/19 20:16:09 by daviles-         ###   ########.fr        #
+#    Updated: 2023/10/25 22:48:57 by daviles-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(MAKE) bonus -sC ./libft
 	$(COMP) $(OBJ) -o $@
-	@echo "$(GREEN)\n Push_Swap is ready to go!$(NOC)"
+	@echo "$(GREEN)\n Pipex is ready to go!$(NOC)"
 	@echo "$(YELLOW)    _       _       _"
 	@echo " __(.)<  __(.)>  __(.)="
 	@echo " \___)   \___)   \___)$(NOC)"
@@ -75,7 +75,7 @@ bonus : $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJS_BONUS)
 	$(MAKE) bonus -sC ./libft
-	$(COMP) $(OBJS_BONUS) -o $@
+	$(COMP) $(OBJS_BONUS) -o pipex
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
