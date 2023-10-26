@@ -1,5 +1,0 @@
-Mmain_bonus	main_bonus.c	/^int	main(int ac, char **av, char **env)$/
-child_input_bonus	childs_bonus.c	/^void	child_input_bonus(int *m_fd, char *av, char */
-child_middle	childs_bonus.c	/^void	child_middle(int *new_fd, int *old_fd, char */
-child_output_bonus	childs_bonus.c	/^pid_t	child_output_bonus(int *m_fd, char *av, char/
-ft_pipex_bonus	pipex_bonus.c	/^void	ft_pipex_bonus(int ac, char **av, char **env)/
