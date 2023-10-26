@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:12:00 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/25 23:40:10 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/26 03:27:55 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/pipex_bonus.h"
@@ -50,8 +50,7 @@ void	process_middle(int	*main_pipe, int ac, char **av, char **env)
 	i = 3;
 	if (!ft_strncmp(av[1], "here_doc", 9))
 		i = 4;
-	old_pipe[0] = main_pipe[0];
-	old_pipe[1] = main_pipe[1];
+	ft_cpypipes(old_pipe, main_pipe);
 	while (i < ac - 2)
 	{
 		if (pipe(new_pipe) == -1)
@@ -61,11 +60,9 @@ void	process_middle(int	*main_pipe, int ac, char **av, char **env)
 			ft_perror_exit("Fork error");
 		else if (pid == 0)
 			child_middle(new_pipe, old_pipe, av[i], env);
-		close(old_pipe[0]);
-		close(new_pipe[1]);
+		ft_close(old_pipe[0], new_pipe[1]);
 		waitpid(pid, NULL, 0);
-		old_pipe[0] = new_pipe[0];
-		old_pipe[1] = new_pipe[1];
+		ft_cpypipes(old_pipe, new_pipe);
 		i++;
 	}
 	child_output_bonus(old_pipe, av, ac, env);
@@ -79,10 +76,8 @@ void	child_middle(int *new_pipe, int *old_pipe, char *av, char **env)
 	cmd = getcmd_withpath(av, &cmds, env);
 	dup2(old_pipe[0], STDIN_FILENO);
 	dup2(new_pipe[1], STDOUT_FILENO);
-	close(new_pipe[0]);
-	close(new_pipe[1]);
-	close(old_pipe[0]);
-	close(old_pipe[1]);
+	ft_close(new_pipe[0], new_pipe[1]);
+	ft_close(old_pipe[0], old_pipe[1]);
 	execve(cmd, cmds, env);
 	ft_perror_exit(cmds[0]);
 }
@@ -132,7 +127,7 @@ void	ft_heredoc(int *main_pipe, char **av, int ac, char **env)
 		if (line == 0)
 			break ;
 		if (!ft_strncmp(line, av[2], ft_strlen(av[2]))
-				&& (ft_strlen(av[2]) + 1) == ft_strlen(line))
+			&& (ft_strlen(av[2]) + 1) == ft_strlen(line))
 			break ;
 		write(fd_in, line, ft_strlen(line));
 		free(line);

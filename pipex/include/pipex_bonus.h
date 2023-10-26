@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:09:35 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/25 23:40:15 by daviles-         ###   ########.fr       */
+/*   Updated: 2023/10/26 03:26:06 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	process_middle(int	*main_pipe, int ac, char **av, char **env);
 void	ft_heredoc(int *main_pipe, char **av, int ac, char **env);
 // utils
 void	ft_close(int fd1, int fd2);
+void	ft_cpypipes(int *old_pipe, int *new_pipe);
 // parser
 
 #endif
