@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:25:45 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //It takes a ’lst’ node as a parameter and frees the memory of the contents 
 //using the ’del’ function given as a parameter, in addition to freeing the 
 //node. The memory of 'next' should not be freed.

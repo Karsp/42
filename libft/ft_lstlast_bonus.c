@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:24:30 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Returns the last node in the list.
 
 t_list	*ft_lstlast(t_list *lst)

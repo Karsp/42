@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/05 22:48:22 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //To each character of the string ’s’, apply the function ’f’ giving as 
 //parameters the index of each character inside ’s’ and the character itself. 
 //Generate a new string with the result of successive use of 'f'

@@ -9,7 +9,7 @@
 /*   Updated: 2023/03/24 22:45:29 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //The strncmp() function compares not more than n characters.return an integer 
 //result of the difference from the first different char between s1 and s2.
 //The comparison is done using unsigned characters

@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:28:48 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Iterates through the ’lst’ list and applies the ’f’ function to the contents 
 //of each node. Create a list resulting from the correct and successive 
 //application of the function 'f' on each node. The ’del’ function is used 

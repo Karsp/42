@@ -9,7 +9,7 @@
 /*   Updated: 2023/06/07 19:28:22 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 // The isalpha() function tests for any character for which isupper(3) or
 //  islower(3) is true.returns zero if the character tests false and returns
 //  non-zero if the character tests true.

@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:19:50 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Sends the string ’s’ to the specified file descriptor
 
 void	ft_putstr_fd(char *s, int fd)

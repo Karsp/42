@@ -9,7 +9,7 @@
 /*   Updated: 2023/08/31 01:20:24 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //converts the initial portion of the string pointed to by str to long 
 //representation.
 

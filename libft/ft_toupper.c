@@ -9,7 +9,7 @@
 /*   Updated: 2023/03/23 20:08:14 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //The toupper() function converts a lower-case letter to the 
 //corresponding upper-case letter.
 

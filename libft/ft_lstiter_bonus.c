@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:27:28 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //iterates the ’lst’ list and applies the ’f’ function on the content of 
 //each node.
 

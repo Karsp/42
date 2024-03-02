@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:18:17 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Sends the number ’n’ to the given file descriptor.
 
 void	ft_putnbr_fd(int n, int fd)

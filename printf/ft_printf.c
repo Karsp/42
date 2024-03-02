@@ -6,10 +6,10 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:43:46 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/06 18:02:27 by daviles-         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:26:00 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libftprintf.h"
+#include "libftprintf.h"
 
 int	ft_putchar(char c, int *res)
 {
@@ -137,5 +137,4 @@ int	main(void)
 	printf("PO %i\n", res2);
 
 	return (0);
-}
-*/
+}*/

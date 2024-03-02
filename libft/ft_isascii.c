@@ -9,7 +9,7 @@
 /*   Updated: 2023/03/23 20:04:04 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //The isascii() function tests for an ASCII character, which is any character
 // between 0 and octal 0177 inclusive.
 

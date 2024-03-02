@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/05 22:41:03 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Remove all characters from the string ’set’ from the beginning and from the 
 //end of ’s1’, until find a character not belonging to ’set’. The resulting 
 //string is returned with a fallback of malloc(3)

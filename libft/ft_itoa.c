@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/05 22:42:53 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Using malloc(3), generate a string that represents the integer value 
 //received as an argument. Negative numbers have to be managed.
 
@@ -43,9 +43,9 @@ static void	ft_isnegative(int *n, int *size, int *sign)
 	psign = sign;
 	if (*pn == -2147483648)
 	{
-	*pn = 147483648;
-	*psize = 11;
-	*psign = 2;
+		*pn = 147483648;
+		*psize = 11;
+		*psign = 2;
 	}
 	else if (*pn == 0)
 		*psize = 1;

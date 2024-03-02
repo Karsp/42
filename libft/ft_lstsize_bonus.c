@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:24:04 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Counts the number of nodes in a list.
 
 int	ft_lstsize(t_list *lst)

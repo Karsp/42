@@ -6,10 +6,10 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/05 22:06:04 by daviles-          #+#    #+#             */
-/*   Updated: 2023/04/27 20:04:35 by daviles-         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:26:32 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"get_next_line.h"
+#include "get_next_line.h"
 
 void	ft_free(char **str)
 {

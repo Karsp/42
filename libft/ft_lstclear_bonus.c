@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/06 19:26:43 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //Removes and frees the given ’lst’ node and all consecutive nodes of that 
 //node, using the ’del’ function and free(3). At the end, the pointer to the 
 //list must be NULL.

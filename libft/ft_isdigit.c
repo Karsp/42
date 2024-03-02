@@ -9,7 +9,7 @@
 /*   Updated: 2023/03/23 20:05:11 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //The isdigit() function tests for a decimal digit character.
 
 int	ft_isdigit(int c)

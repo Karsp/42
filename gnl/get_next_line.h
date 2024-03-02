@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/10 18:42:40 by daviles-          #+#    #+#             */
-/*   Updated: 2023/07/03 23:52:21 by daviles-         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:27:05 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef GET_NEXT_LINE_H
@@ -16,9 +16,9 @@
 #  define BUFFER_SIZE 10 
 # endif
 
-# include<stdio.h>
-# include<unistd.h>
-# include<stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
 # include <fcntl.h>
 
 char	*ft_strjoin(char const *s1, char const *s2);

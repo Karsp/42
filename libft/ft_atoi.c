@@ -9,7 +9,7 @@
 /*   Updated: 2023/04/01 18:41:33 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //converts the initial portion of the string pointed to by str to int 
 //representation.
 

@@ -9,7 +9,7 @@
 /*   Updated: 2023/08/30 21:20:55 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"libft.h"
+#include "libft.h"
 //The isspace() function tests for a space type character (tabs,returns, etc.)
 
 int	ft_isspace(int c)
