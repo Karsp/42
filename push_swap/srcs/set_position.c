@@ -6,7 +6,7 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 14:32:54 by daviles-          #+#    #+#             */
-/*   Updated: 2023/09/20 17:26:00 by daviles-         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:42:12 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -114,4 +114,4 @@ void	set_pos_targ(t_stack **stack_a, t_stack **stack_b)
 		aux_b->target = t_pos;
 		aux_b = aux_b->next;
 	}
-}	
+}
