@@ -6,18 +6,18 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 21:09:35 by daviles-          #+#    #+#             */
-/*   Updated: 2023/10/26 03:57:58 by daviles-         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:35:27 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
-# include<unistd.h>
-# include<stdio.h>
-# include<stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
 # include <sys/wait.h>
 # include <errno.h>
-# include"../libft/libft.h"
+# include "../libft/libft.h"
 
 // pipex
 void	ft_pipex_bonus(int ac, char **av, char **env);
