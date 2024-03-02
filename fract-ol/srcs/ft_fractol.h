@@ -6,14 +6,14 @@
 /*   By: daviles- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 21:26:55 by daviles-          #+#    #+#             */
-/*   Updated: 2023/06/21 17:27:28 by daviles-         ###   ########.fr       */
+/*   Updated: 2024/03/03 00:50:15 by daviles-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_FRACTOL_H
 # define FT_FRACTOL_H
 
-# include  "../mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include <stdlib.h>
 # include <math.h>
 # include <stdio.h>
